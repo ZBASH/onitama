@@ -8,5 +8,4 @@ class GameTest {
         String board = "board";
         assertEquals("board", board);
     }
-
 }

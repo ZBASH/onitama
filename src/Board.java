@@ -1,4 +1,4 @@
-public class Board {
+public final class Board {
     // constants
     private static final int SIZE = 5;
     private static final char SPACE = '*';

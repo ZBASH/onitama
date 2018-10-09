@@ -31,7 +31,7 @@ class UiTest {
             this(new ByteArrayOutputStream());
         }
 
-        MockPrintStream(OutputStream out) {
+        private MockPrintStream(OutputStream out) {
             super(out);
             this.stream = (ByteArrayOutputStream)out;
         }

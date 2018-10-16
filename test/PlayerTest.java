@@ -6,9 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
     @Test
-    void itAssignsPawnsToTheRow() {
-        Player player = new Player();
-        player.assignStartingRow(3);
+    void itStartsAtTheRow() {
+        Player player = Player.createAtRow(3);
 
         ArrayList<Point> expected = new ArrayList<>();
         expected.add(new Point(0, 3));

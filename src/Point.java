@@ -7,6 +7,7 @@ public class Point {
         this.y = y;
     }
 
+    // accessors
     public int getX() {
         return x;
     }
@@ -15,6 +16,12 @@ public class Point {
         return y;
     }
 
+    // factories
+    public static Point zero() {
+        return new Point(0, 0);
+    }
+
+    // equality
     @Override
     public boolean equals(Object other) {
         if(!(other instanceof Point)) {

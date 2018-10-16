@@ -5,17 +5,16 @@ public final class Game {
 
     Game() {
         ui      = new Ui(System.out);
-        board   = new Board();
+        board   = Board.create();
         players = new Player[2];
     }
 
     private void start() {
-        players[0] = new Player();
-        players[1] = new Player();
-        players[0].assignStartingRow(0);
-        players[1].assignStartingRow(Config.BOARD_SIZE - 1);
+        players[0] = Player.createAtRow(0);
+        players[1] = Player.createAtRow(Config.BOARD_SIZE - 1);
 
-        ui.renderBoard(board.getGrid());
+        ui.render(board);
+        ui.flush();
     }
 
     // main

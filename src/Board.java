@@ -1,19 +1,30 @@
-final class Board {
+public final class Board {
     // fields
     private char[][] grid;
 
-    Board() {
-        grid = new char[Config.BOARD_SIZE][Config.BOARD_SIZE];
-
-        for (int i = 0; i < Config.BOARD_SIZE; i++) {
-            for (int j = 0; j < Config.BOARD_SIZE; j++) {
-                grid[i][j] = Config.BOARD_SPACE;
-            }
-        }
+    public Board(char[][] grid) {
+        this.grid = grid;
     }
 
     // accessors
-    char[][] getGrid() {
+    public char[][] getGrid() {
         return grid;
+    }
+
+    // factories
+    public static Board create() {
+        return create(Config.BOARD_SIZE);
+    }
+    
+    public static Board create(int size) {
+        char[][] grid = new char[size][size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                grid[i][j] = Config.BOARD_SPACE;
+            }
+        }
+
+        return new Board(grid);
     }
 }

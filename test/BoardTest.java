@@ -1,23 +1,13 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
-import factories.GridFactory;
 
 class BoardTest {
     @Test
     void itShowsTheInitialGrid() {
-        Board board = new Board();
+        Board board = Board.create();
 
-        char[][] expected = GridFactory.grid(
-            "* * * * *" +
-            "* * * * *" +
-            "* * * * *" +
-            "* * * * *" +
-            "* * * * *"
-        );
-
-        assertTrue(Arrays.deepEquals(expected, board.getGrid()));
+        assertEquals(board.getGrid().length,    5);
+        assertEquals(board.getGrid()[0].length, 5);
     }
 }

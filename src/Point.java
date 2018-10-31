@@ -32,4 +32,10 @@ public class Point {
         return point.x == this.x
             && point.y == this.y;
     }
+
+    // debugging
+    @Override
+    public String toString() {
+        return "(" + x + "," + y + ")";
+    }
 }

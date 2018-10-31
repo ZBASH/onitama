@@ -1,4 +1,7 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 final class Ui {
     private PrintStream out;
@@ -9,7 +12,7 @@ final class Ui {
     }
 
     // compositing
-    void render(Board board) {
+    void render(@NotNull Board board) {
         char[][] grid = board.getGrid();
 
         buffer = grid.clone();
@@ -18,7 +21,11 @@ final class Ui {
         }
     }
 
-    void render(Player[] players) {
+    void render(@NotNull ArrayList<Player> players) {
+        if(buffer == null) {
+            throw new NoBoardError();
+        }
+
         for(Player player : players) {
             for(Point pawn : player.getPawns()) {
                 render(pawn);
@@ -26,7 +33,7 @@ final class Ui {
         }
     }
 
-    void render(Point point) {
+    private void render(Point point) {
         if(buffer == null) {
             throw new NoBoardError();
         }

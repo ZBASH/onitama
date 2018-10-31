@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,15 +13,18 @@ class UiTest {
         Ui ui = new Ui(new MockPrintStream());
 
         assertThrows(Ui.NoBoardError.class, () -> ui.flush());
-        assertThrows(Ui.NoBoardError.class, () -> ui.render(Point.zero()));
+        assertThrows(Ui.NoBoardError.class, () -> ui.render(new ArrayList<>()));
     }
 
     @Test
-    void itRequiresAPointInsideTheBoard() {
+    void itRequiresPawnsInsideTheBoard() {
         Ui ui = new Ui(new MockPrintStream());
         ui.render(Board.create(0));
 
-        assertThrows(Ui.OutOfBoardError.class, () -> ui.render(new Point(1, 0)));
+        ArrayList<Player> players = new ArrayList<>();
+        players.add(Player.createAtRow(1, 1));
+
+        assertThrows(Ui.OutOfBoardError.class, () -> ui.render(players));
     }
 
     @Test
@@ -40,23 +44,6 @@ class UiTest {
     }
 
     @Test
-    void itPrintsAPoint() {
-        MockPrintStream out = new MockPrintStream();
-
-        Ui ui = new Ui(out);
-
-        String expected =
-            "* *\n" +
-            "# *\n";
-
-        ui.render(Board.create(2));
-        ui.render(new Point(0, 1));
-        ui.flush();
-
-        assertEquals(expected, out.getOutput());
-    }
-
-    @Test
     void itPrintsPlayerPawns() {
         MockPrintStream out = new MockPrintStream();
 
@@ -66,8 +53,8 @@ class UiTest {
             "* *\n" +
             "# #\n";
 
-        Player[] players = new Player[1];
-        players[0] = Player.createAtRow(1, 2);
+        ArrayList<Player> players = new ArrayList<>(1);
+        players.add(Player.createAtRow(1, 2));
 
         ui.render(Board.create(2));
         ui.render(players);

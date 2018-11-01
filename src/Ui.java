@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 final class Ui {
     private PrintStream out;
-    private char[][]    buffer;
+    private Tile[][]    buffer;
 
     Ui(PrintStream out) {
         this.out = out;
@@ -15,9 +15,14 @@ final class Ui {
     void render(@NotNull Board board) {
         char[][] grid = board.getGrid();
 
-        buffer = grid.clone();
-        for(int i = 0; i < grid.length; i++) {
-            buffer[i] = grid[i].clone();
+        buffer = new Tile[grid.length][];
+        for(int y = 0; y < grid.length; y++) {
+            char[] row = grid[y];
+
+            buffer[y] = new Tile[row.length];
+            for(int x = 0; x < row.length; x++) {
+                buffer[y][x] = new Tile(row[x]);
+            }
         }
     }
 
@@ -28,12 +33,12 @@ final class Ui {
 
         for(Player player : players) {
             for(Point pawn : player.getPawns()) {
-                render(pawn);
+                render(pawn, player.getColor());
             }
         }
     }
 
-    private void render(Point point) {
+    private void render(@NotNull Point point, Color color) {
         if(buffer == null) {
             throw new NoBoardError();
         }
@@ -45,7 +50,7 @@ final class Ui {
             throw new OutOfBoardError();
         }
 
-        buffer[y][x] = '#';
+        buffer[y][x] = new Tile('#', color);
     }
 
     // display
@@ -54,11 +59,11 @@ final class Ui {
             throw new NoBoardError();
         }
 
-        for(char[] row : buffer) {
+        for(Tile[] row : buffer) {
             int i = 0;
 
-            for(char cell : row) {
-                out.print(cell);
+            for(Tile tile : row) {
+                out.print(tile.render());
                 out.print(i++ == row.length - 1 ? '\n' : ' ');
             }
         }
@@ -71,5 +76,44 @@ final class Ui {
     }
 
     class OutOfBoardError extends RuntimeException {
+    }
+
+    // tile
+    private class Tile {
+        private char  glyph;
+        private Color color;
+
+        Tile(char glyph) {
+            this(glyph, Color.NONE);
+        }
+
+        Tile(char glyph, Color color) {
+            this.glyph = glyph;
+            this.color = color;
+        }
+
+        String render() {
+            return prefix() + String.valueOf(glyph) + suffix();
+        }
+
+        private String prefix() {
+            switch(color) {
+                case RED:
+                    return "\033[0;31m";
+                case BLUE:
+                    return "\033[0;34m";
+                default:
+                    return "";
+            }
+        }
+
+        private String suffix() {
+            switch(color) {
+                case NONE:
+                    return "";
+                default:
+                    return "\033[0m";
+            }
+        }
     }
 }

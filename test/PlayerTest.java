@@ -18,4 +18,17 @@ class PlayerTest {
 
         assertEquals(expected, player.getPawns());
     }
+
+    @Test
+    void itStartsWithNoColor() {
+        Player player = new Player();
+        assertEquals(Color.NONE, player.getColor());
+    }
+
+    @Test
+    void itCanChooseAColor() {
+        Player player = new Player();
+        player.chooseColor(Color.RED);
+        assertEquals(Color.RED, player.getColor());
+    }
 }

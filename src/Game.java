@@ -12,8 +12,13 @@ public final class Game {
     }
 
     private void start() {
-        players.add(Player.createAtRow(0));
-        players.add(Player.createAtRow(Config.BOARD_SIZE - 1));
+        Player player1 = Player.createAtRow(0);
+        player1.chooseColor(Color.RED);
+        players.add(player1);
+
+        Player player2 = Player.createAtRow(Config.BOARD_SIZE - 1);
+        player2.chooseColor(Color.BLUE);
+        players.add(player2);
 
         ui.render(board);
         ui.render(players);

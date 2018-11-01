@@ -1,15 +1,28 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 class Player {
+    private Color color;
     private ArrayList<Point> pawns;
 
     Player() {
-        pawns = new ArrayList<>();
+        this.color = Color.NONE;
+        this.pawns = new ArrayList<>();
+    }
+
+    // mutators
+    void chooseColor(@NotNull Color color) {
+        this.color = color;
     }
 
     // accessors
     ArrayList<Point> getPawns() {
         return pawns;
+    }
+
+    Color getColor() {
+        return color;
     }
 
     // factories

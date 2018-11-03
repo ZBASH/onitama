@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 class Player {
     private Color color;
-    private ArrayList<Point> pawns;
+    private ArrayList<Pawn> pawns;
 
     Player() {
         this.color = Color.NONE;
@@ -17,7 +17,7 @@ class Player {
     }
 
     // accessors
-    ArrayList<Point> getPawns() {
+    ArrayList<Pawn> getPawns() {
         return pawns;
     }
 
@@ -34,7 +34,7 @@ class Player {
         Player player = new Player();
 
         for(int x = 0; x < size; x++) {
-            player.pawns.add(new Point(x, row));
+            player.pawns.add(new Pawn(new Point(x, row)));
         }
 
         return player;

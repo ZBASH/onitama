@@ -16,7 +16,12 @@ class PlayerTest {
         expected.add(new Point(3, 3));
         expected.add(new Point(4, 3));
 
-        assertEquals(expected, player.getPawns());
+        ArrayList<Point> actual = new ArrayList<>();
+        for(Pawn pawn : player.getPawns()) {
+            actual.add(pawn.getPosition());
+        }
+
+        assertEquals(expected, actual);
     }
 
     @Test

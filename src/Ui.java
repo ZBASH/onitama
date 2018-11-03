@@ -32,19 +32,19 @@ final class Ui {
         }
 
         for(Player player : players) {
-            for(Point pawn : player.getPawns()) {
+            for(Pawn pawn : player.getPawns()) {
                 render(pawn, player.getColor());
             }
         }
     }
 
-    private void render(@NotNull Point point, Color color) {
+    private void render(@NotNull Pawn pawn, Color color) {
         if(buffer == null) {
             throw new NoBoardError();
         }
 
-        int x = point.getX();
-        int y = point.getY();
+        int x = pawn.getX();
+        int y = pawn.getY();
 
         if(y >= buffer.length || x >= buffer[y].length) {
             throw new OutOfBoardError();

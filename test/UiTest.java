@@ -44,7 +44,7 @@ class UiTest {
     }
 
     @Test
-    void itPrintsPlayerPawns() {
+    void itPrintsPlayerPawnsOnTheCorrectRow() {
         MockPrintStream out = new MockPrintStream();
 
         Ui ui = new Ui(out);
@@ -54,9 +54,32 @@ class UiTest {
             "# #\n";
 
         ArrayList<Player> players = new ArrayList<>(1);
-        players.add(Player.createAtRow(1, 2));
+        Player player = Player.createAtRow(1, 2);
+        players.add(player);
 
         ui.render(Board.create(2));
+        ui.render(players);
+        ui.flush();
+
+        assertEquals(expected, out.getOutput());
+    }
+
+    @Test
+    void itPrintsPlayerPawnsOfTheCorrectColor() {
+        MockPrintStream out = new MockPrintStream();
+
+        Ui ui = new Ui(out);
+
+        String expected =
+            "\033[0;31m#\033[0m\n";
+
+        Player player = Player.createAtRow(0, 1);
+        player.chooseColor(Color.RED);
+
+        ArrayList<Player> players = new ArrayList<>(1);
+        players.add(player);
+
+        ui.render(Board.create(1));
         ui.render(players);
         ui.flush();
 

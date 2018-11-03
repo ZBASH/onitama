@@ -1,10 +1,16 @@
 public class Pawn {
-    private Point position;
+    Point position;
 
     Pawn(Point position) {
         this.position = position;
     }
 
+    // mutations
+    public void moveTo(Point position) {
+        this.position = position;
+    }
+
+    // accessors
     public Point getPosition() {
         return position;
     }

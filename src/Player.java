@@ -16,6 +16,10 @@ class Player {
         this.color = color;
     }
 
+    void movePawn(int index, Point position) {
+        pawns.get(index).moveTo(position);
+    }
+
     // accessors
     ArrayList<Pawn> getPawns() {
         return pawns;

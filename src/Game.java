@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public final class Game {
     private Board board;
     private ArrayList<Player> players;
+    private Player currentPlayer;
 
     Game() {
         board   = Board.create();
@@ -17,6 +18,8 @@ public final class Game {
         Player player2 = Player.createAtRow(Config.BOARD_SIZE - 1);
         player2.chooseColor(Color.BLUE);
         players.add(player2);
+
+        currentPlayer = player1;
     }
 
     public Board getBoard() {
@@ -25,5 +28,13 @@ public final class Game {
 
     public ArrayList<Player> getPlayers() {
         return players;
+    }
+
+    public void updateBoard(Move move) {
+
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 }

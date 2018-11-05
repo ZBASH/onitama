@@ -5,6 +5,7 @@ import java.util.ArrayList;
 class Player {
     private Color color;
     private ArrayList<Pawn> pawns;
+    private Pawn pawnToMove;
 
     Player() {
         this.color = Color.NONE;
@@ -16,8 +17,9 @@ class Player {
         this.color = color;
     }
 
-    void movePawn(int index, Point position) {
-        pawns.get(index).moveTo(position);
+    void movePawn(Pawn pawn, Point position) {
+        pawnToMove = pawn;
+        pawnToMove.moveTo(position);
     }
 
     // accessors
@@ -29,6 +31,9 @@ class Player {
         return color;
     }
 
+    Pawn pawnToMove() {
+        return pawnToMove;
+    }
     // factories
     static Player createAtRow(int row) {
         return createAtRow(row, Config.BOARD_SIZE);

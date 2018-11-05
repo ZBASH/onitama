@@ -1,7 +1,6 @@
 public class App {
     private Game game;
     private Ui ui;
-    private PendingMove pendingMove;
 
     App() {
         game = new Game();
@@ -10,6 +9,13 @@ public class App {
 
     private void start() {
         game.start();
+
+        PendingMove pendingMove = getPendingMove();
+        if(pendingMove != null) {
+        }
+        else {
+            System.out.println("Invalid move - try again!");
+        }
 
         ui.render(game.getBoard());
         ui.render(game.getPlayers());
@@ -22,7 +28,7 @@ public class App {
         app.start();
     }
 
-    public PendingMove getPendingMove(Pawn pawn, Point point) {
-        return pendingMove;
+    public PendingMove getPendingMove() {
+        return new PendingMove(this.game);
     }
 }

@@ -6,11 +6,9 @@ class PendingMoveTest {
 
     @Test
     void itCreatesAPendingMove() {
-        Pawn pawn = new Pawn(Point.zero());
-        Point point = new Point(1,2);
-        PendingMove pendingMove = new PendingMove(pawn, point);
+        Game game = new Game();
+        PendingMove pendingMove = new PendingMove(game);
 
-        assertEquals(1, pendingMove.getPoint().getX());
-        assertEquals(2, pendingMove.getPoint().getY());
+        assertEquals(true, pendingMove.getValidMove());
     }
 }

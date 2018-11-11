@@ -1,16 +1,18 @@
 import java.util.ArrayList;
 
-public final class Game {
+final class Game {
+    private int currentPlayerId;
     private Board board;
     private ArrayList<Player> players;
-    private Player currentPlayer;
 
     Game() {
+        currentPlayerId = 0;
         board   = Board.create();
         players = new ArrayList<>(2);
     }
 
-    public void start() {
+    // command
+    void start() {
         Player player1 = Player.createAtRow(0);
         player1.chooseColor(Color.RED);
         players.add(player1);
@@ -18,23 +20,24 @@ public final class Game {
         Player player2 = Player.createAtRow(Config.BOARD_SIZE - 1);
         player2.chooseColor(Color.BLUE);
         players.add(player2);
-
-        currentPlayer = player1;
     }
 
-    public Board getBoard() {
+    // queries
+    Pawn findCurrentPlayerPawnById(int pawnId) {
+        Player currentPlayer = getPlayers().get(currentPlayerId);
+        if(pawnId < 0 || pawnId > currentPlayer.getPawns().size()) {
+            return null;
+        }
+
+        return currentPlayer.getPawns().get(pawnId);
+    }
+
+    // accessors
+    Board getBoard() {
         return board;
     }
 
-    public ArrayList<Player> getPlayers() {
+    ArrayList<Player> getPlayers() {
         return players;
-    }
-
-    public void updateBoard(Move move) {
-
-    }
-
-    public Player getCurrentPlayer() {
-        return currentPlayer;
     }
 }

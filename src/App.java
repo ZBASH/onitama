@@ -10,13 +10,6 @@ public class App {
     private void start() {
         game.start();
 
-        PendingMove pendingMove = getPendingMove();
-        if(pendingMove != null) {
-        }
-        else {
-            System.out.println("Invalid move - try again!");
-        }
-
         ui.render(game.getBoard());
         ui.render(game.getPlayers());
         ui.flush();
@@ -26,9 +19,5 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
         app.start();
-    }
-
-    public PendingMove getPendingMove() {
-        return new PendingMove(this.game);
     }
 }

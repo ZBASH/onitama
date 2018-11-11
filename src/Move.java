@@ -1,17 +1,18 @@
 public class Move {
-    private Pawn pawn;
-    private Point point;
+    private int   pawnId;
+    private Point delta;
 
-    Move(Pawn pawn, Point newPosition) {
-        this.pawn  = pawn;
-        this.point = newPosition;
+    Move(int pawnId, Point delta) {
+        this.pawnId = pawnId;
+        this.delta  = delta;
     }
 
-    public Point getPoint() {
-        return point;
+    // accessors
+    public int getPawnId() {
+        return pawnId;
     }
 
-    public Pawn getPawn() {
-        return pawn;
+    public Point getDelta() {
+        return delta;
     }
 }

@@ -7,6 +7,14 @@ public class Point {
         this.y = y;
     }
 
+    // operators
+    Point add(Point other) {
+        return new Point(
+            x + other.getX(),
+            y + other.getY()
+        );
+    }
+
     // accessors
     public int getX() {
         return x;

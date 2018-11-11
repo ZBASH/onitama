@@ -12,7 +12,7 @@ class Player {
         this.pawns = new ArrayList<>();
     }
 
-    // mutators
+    // commands
     void chooseColor(@NotNull Color color) {
         this.color = color;
     }

@@ -32,6 +32,18 @@ final class Game {
         return currentPlayer.getPawns().get(pawnId);
     }
 
+    Pawn findPawnByPosition(Point position) {
+        for(Player player : players) {
+            for(Pawn pawn : player.getPawns()) {
+                if(pawn.getPosition().equals(position)) {
+                    return pawn;
+                }
+            }
+        }
+
+        return null;
+    }
+
     // accessors
     Board getBoard() {
         return board;

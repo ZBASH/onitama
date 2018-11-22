@@ -19,7 +19,7 @@ class PendingMoveTest {
     }
 
     @Test
-    void itIgnoresInvalidPawns() {
+    void itDisallowsInvalidPawns() {
         Game game = new Game();
         game.start();
         PendingMove pendingMove = new PendingMove(game);
@@ -27,11 +27,11 @@ class PendingMoveTest {
         pendingMove.pickPawn(100);
         Move actual = pendingMove.getValidMove();
 
-        assertEquals(null, actual);
+        assertNull(actual);
     }
 
     @Test
-    void itIgnoredOutOfBoundsMoves() {
+    void itDisallowsOutOfBoundsMoves() {
         Game game = new Game();
         game.start();
         PendingMove pendingMove = new PendingMove(game);
@@ -40,6 +40,19 @@ class PendingMoveTest {
         pendingMove.pickCard(new Point(3, 0));
         Move actual = pendingMove.getValidMove();
 
-        assertEquals(null, actual);
+        assertNull(actual);
+    }
+
+    @Test
+    void itDisallowsMovesToOccupiedSpaces() {
+        Game game = new Game();
+        game.start();
+        PendingMove pendingMove = new PendingMove(game);
+
+        pendingMove.pickPawn(0);
+        pendingMove.pickCard(new Point(1, 0));
+        Move actual = pendingMove.getValidMove();
+
+        assertNull(actual);
     }
 }

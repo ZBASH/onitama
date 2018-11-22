@@ -8,8 +8,8 @@ public final class Board {
 
     // queries
     boolean containsPoint(Point point) {
-        return point.getX() < 0 || point.getX() >= grid.length
-            || point.getY() < 0 || point.getY() >= grid.length;
+        return point.getX() >= 0 && point.getX() < grid.length
+            && point.getY() >= 0 && point.getY() < grid.length;
     }
 
     // accessors

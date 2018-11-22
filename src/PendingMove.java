@@ -1,7 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-
 class PendingMove {
     // dependency
     private Game game;
@@ -25,20 +21,28 @@ class PendingMove {
 
     // queries
     Move getValidMove() {
-        if(isMoveInvalid()) {
+        if(!isMoveValid()) {
             return null;
         }
 
         return new Move(pawnId, delta);
     }
 
-    private boolean isMoveInvalid() {
+    private boolean isMoveValid() {
         Pawn pawn = game.findCurrentPlayerPawnById(pawnId);
         if(pawn == null) {
-            return true;
+            return false;
         }
-         
+
         Point newPosition = pawn.getPosition().add(delta);
-        return game.getBoard().containsPoint(newPosition);
+        if(!game.getBoard().containsPoint(newPosition)) {
+            return false;
+        }
+
+        if(game.findPawnByPosition(newPosition) != null) {
+            return false;
+        }
+
+        return true;
     }
 }

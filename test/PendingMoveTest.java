@@ -9,13 +9,13 @@ class PendingMoveTest {
         game.start();
         PendingMove pendingMove = new PendingMove(game);
 
-        pendingMove.pickPawn(0);
-        pendingMove.pickCard(new Point(0,1));
+        pendingMove.pickPawn(1);
+        pendingMove.pickCard(new Point(0, 1));
         Move actual = pendingMove.getValidMove();
 
-        assertEquals(0, actual.getPawnId());
-        assertEquals(0, actual.getDelta().getX());
-        assertEquals(1, actual.getDelta().getY());
+        assertEquals(1, actual.getPawnId());
+        assertEquals(1, actual.getNewPosition().getX());
+        assertEquals(1, actual.getNewPosition().getY());
     }
 
     @Test

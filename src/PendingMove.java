@@ -16,33 +16,25 @@ class PendingMove {
     }
 
     void pickCard(Point delta) {
-        this.delta  = delta;
+        this.delta = delta;
     }
 
     // queries
     Move getValidMove() {
-        if(!isMoveValid()) {
-            return null;
-        }
-
-        return new Move(pawnId, delta);
-    }
-
-    private boolean isMoveValid() {
         Pawn pawn = game.findCurrentPlayerPawnById(pawnId);
         if(pawn == null) {
-            return false;
+            return null;
         }
 
         Point newPosition = pawn.getPosition().add(delta);
         if(!game.getBoard().containsPoint(newPosition)) {
-            return false;
+            return null;
         }
 
         if(game.findPawnByPosition(newPosition) != null) {
-            return false;
+            return null;
         }
 
-        return true;
+        return new Move(pawnId, newPosition);
     }
 }

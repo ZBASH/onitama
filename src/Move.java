@@ -1,10 +1,10 @@
 public class Move {
     private int   pawnId;
-    private Point delta;
+    private Point newPosition;
 
-    Move(int pawnId, Point delta) {
-        this.pawnId = pawnId;
-        this.delta  = delta;
+    Move(int pawnId, Point newPosition) {
+        this.pawnId      = pawnId;
+        this.newPosition = newPosition;
     }
 
     // accessors
@@ -12,7 +12,7 @@ public class Move {
         return pawnId;
     }
 
-    public Point getDelta() {
-        return delta;
+    public Point getNewPosition() {
+        return newPosition;
     }
 }

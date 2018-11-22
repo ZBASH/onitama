@@ -22,6 +22,11 @@ final class Game {
         players.add(player2);
     }
 
+    void makeMove(Move move) {
+        Pawn pawn = findCurrentPlayerPawnById(move.getPawnId());
+        pawn.moveTo(move.getNewPosition());
+    }
+
     // queries
     Pawn findCurrentPlayerPawnById(int pawnId) {
         Player currentPlayer = getPlayers().get(currentPlayerId);

@@ -22,4 +22,15 @@ class GameTest {
         assertEquals(4, player.getPawns().get(0).getY());
         assertEquals(Color.BLUE, player.getColor());
     }
+
+    @Test
+    void itMakesAMove() {
+        Game game = new Game();
+        game.start();
+
+        Move move = new Move(2, new Point(2, 1));
+        game.makeMove(move);
+
+        assertNotNull(game.findPawnByPosition(move.getNewPosition()));
+    }
 }

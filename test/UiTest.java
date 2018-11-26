@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UiTest {
     @Test
     void itRequiresABoard() {
-        Ui ui = new Ui(new MockPrintStream());
+        Ui ui = new Ui(new MockPrintStream(), new MockInputStream());
 
         assertThrows(Ui.NoBoardError.class, () -> ui.flush());
         assertThrows(Ui.NoBoardError.class, () -> ui.render(new ArrayList<>()));
@@ -18,7 +16,7 @@ class UiTest {
 
     @Test
     void itRequiresPawnsInsideTheBoard() {
-        Ui ui = new Ui(new MockPrintStream());
+        Ui ui = new Ui(new MockPrintStream(), new MockInputStream());
         ui.render(Board.create(0));
 
         ArrayList<Player> players = new ArrayList<>();
@@ -31,7 +29,7 @@ class UiTest {
     void itPrintsTheBoard() {
         MockPrintStream out = new MockPrintStream();
 
-        Ui ui = new Ui(out);
+        Ui ui = new Ui(out, new MockInputStream());
 
         String expected =
             "* *\n" +
@@ -47,7 +45,7 @@ class UiTest {
     void itPrintsPlayerPawnsOnTheCorrectRow() {
         MockPrintStream out = new MockPrintStream();
 
-        Ui ui = new Ui(out);
+        Ui ui = new Ui(out, new MockInputStream());
 
         String expected =
             "* *\n" +
@@ -68,7 +66,7 @@ class UiTest {
     void itPrintsPlayerPawnsOfTheCorrectColor() {
         MockPrintStream out = new MockPrintStream();
 
-        Ui ui = new Ui(out);
+        Ui ui = new Ui(out, new MockInputStream());
 
         String expected =
             "\033[0;31m#\033[0m\n";
@@ -86,6 +84,26 @@ class UiTest {
         assertEquals(expected, out.getOutput());
     }
 
+    @Test
+    void itPicksAPawnId() {
+        MockInputStream in = new MockInputStream();
+        Ui ui = new Ui(new MockPrintStream(), in);
+
+        in.setInput("2\n");
+        int actualPawnId = ui.pickPawnId();
+        assertEquals(2, actualPawnId);
+    }
+
+    @Test
+    void itRetriesUntilThePawnIdIsANumber() {
+        MockInputStream in = new MockInputStream();
+        Ui ui = new Ui(new MockPrintStream(), in);
+
+        in.setInput("$\n2\n");
+        int actualPawnId = ui.pickPawnId();
+        assertEquals(2, actualPawnId);
+    }
+
     // mocks
     private class MockPrintStream extends PrintStream {
         private ByteArrayOutputStream stream;
@@ -96,12 +114,36 @@ class UiTest {
 
         private MockPrintStream(OutputStream out) {
             super(out);
-            this.stream = (ByteArrayOutputStream)out;
+            this.stream = (ByteArrayOutputStream) out;
         }
 
         // accessors
         String getOutput() {
             return new String(this.stream.toByteArray());
+        }
+    }
+
+    private class MockInputStream extends InputStream {
+        private int[] input;
+        private int position;
+
+        void setInput(String input) {
+            this.input    = input.codePoints().toArray();
+            this.position = 0;
+        }
+
+        // InputStream
+        @Override
+        public int read() throws IOException {
+            if(input == null) {
+                throw new IOException();
+            }
+
+            if(position >= input.length) {
+                throw new IOException();
+            }
+
+            return input[position++];
         }
     }
 }

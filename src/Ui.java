@@ -83,6 +83,9 @@ final class Ui {
 
     // user input
     int pickPawnId() {
+        out.println();
+        out.print("enter pawn id [0-9]: ");
+
         Scanner scanner = new Scanner(in);
 
         int pawnId = -1;
@@ -94,6 +97,8 @@ final class Ui {
                 // continue with loop until success
             }
         }
+
+        out.println();
 
         return pawnId;
     }

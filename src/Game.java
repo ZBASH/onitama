@@ -25,12 +25,15 @@ final class Game {
     void makeMove(Move move) {
         Pawn pawn = findCurrentPlayerPawnById(move.getPawnId());
         pawn.moveTo(move.getNewPosition());
+
+        // swap current player
+        currentPlayerId = 1 - currentPlayerId;
     }
 
     // queries
     Pawn findCurrentPlayerPawnById(int pawnId) {
-        Player currentPlayer = getPlayers().get(currentPlayerId);
-        if(pawnId < 0 || pawnId > currentPlayer.getPawns().size()) {
+        Player currentPlayer = getCurrentPlayer();
+        if(pawnId < 0 || pawnId >= currentPlayer.getPawns().size()) {
             return null;
         }
 
@@ -56,5 +59,9 @@ final class Game {
 
     ArrayList<Player> getPlayers() {
         return players;
+    }
+
+    Player getCurrentPlayer() {
+        return getPlayers().get(currentPlayerId);
     }
 }

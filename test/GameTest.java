@@ -33,4 +33,17 @@ class GameTest {
 
         assertNotNull(game.findPawnByPosition(move.getNewPosition()));
     }
+
+    @Test
+    void itSwapsTheCurrentPlayerAfterMakingAMove() {
+        Game game = new Game();
+        game.start();
+
+        Player previousPlayer = game.getCurrentPlayer();
+
+        Move move = new Move(2, new Point(2, 1));
+        game.makeMove(move);
+
+        assertNotEquals(previousPlayer, game.getCurrentPlayer());
+    }
 }

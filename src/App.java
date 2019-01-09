@@ -20,10 +20,11 @@ public class App {
             pendingMove.pickPawn(ui.pickPawnId());
             pendingMove.pickCard(new Point(0, 1));
 
-            Move move = pendingMove.getValidMove();
-            if (move != null) {
-                game.makeMove(move);
+            PendingMove.Result result = pendingMove.getValidMove();
+            if (result.getMove() != null) {
+                game.makeMove(result.getMove());
             }
+            // TODO resolve result.getMove()
         }
     }
 

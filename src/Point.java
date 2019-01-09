@@ -15,6 +15,13 @@ public class Point {
         );
     }
 
+    Point mirrorX() {
+        return new Point(
+            x,
+            y * -1
+        );
+    }
+
     // accessors
     public int getX() {
         return x;

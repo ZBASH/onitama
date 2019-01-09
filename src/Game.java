@@ -52,6 +52,15 @@ final class Game {
         return null;
     }
 
+
+    Player getCurrentPlayer() {
+        return getPlayers().get(currentPlayerId);
+    }
+
+    boolean isFirstPlayerCurrentPlayer() {
+        return currentPlayerId == 0;
+    }
+
     // accessors
     Board getBoard() {
         return board;
@@ -59,9 +68,5 @@ final class Game {
 
     ArrayList<Player> getPlayers() {
         return players;
-    }
-
-    Player getCurrentPlayer() {
-        return getPlayers().get(currentPlayerId);
     }
 }

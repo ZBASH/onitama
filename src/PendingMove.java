@@ -44,7 +44,7 @@ class PendingMove {
             return new Result(new PositionOutOfBounds(newPosition));
         }
 
-        if(game.findPawnByPosition(newPosition) != null) {
+        if(game.findCurrentPlayerPawnByPosition(newPosition) != null) {
             return new Result(new PositionWasOccuppied(newPosition));
         }
 

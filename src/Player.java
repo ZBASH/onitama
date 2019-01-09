@@ -22,6 +22,17 @@ class Player {
         pawnToMove.moveTo(position);
     }
 
+    // queries
+    Pawn findPawnByPosition(Point position) {
+        for(Pawn pawn : getPawns()) {
+            if(pawn.getPosition().equals(position)) {
+                return pawn;
+            }
+        }
+
+        return null;
+    }
+
     // accessors
     ArrayList<Pawn> getPawns() {
         return pawns;

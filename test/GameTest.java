@@ -27,11 +27,12 @@ class GameTest {
     void itMakesAMove() {
         Game game = new Game();
         game.start();
+        Pawn pawn = game.findCurrentPlayerPawnById(2);
 
         Move move = new Move(2, new Point(2, 1));
         game.makeMove(move);
 
-        assertNotNull(game.findPawnByPosition(move.getNewPosition()));
+        assertEquals(move.getNewPosition(), pawn.getPosition());
     }
 
     @Test

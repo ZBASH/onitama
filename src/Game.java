@@ -23,8 +23,15 @@ final class Game {
     }
 
     void makeMove(Move move) {
+        // current player makes move
         Pawn pawn = findCurrentPlayerPawnById(move.getPawnId());
         pawn.moveTo(move.getNewPosition());
+
+        // capture opponents pawn if possible
+        Pawn otherPawn = findOtherPlayerPawnByPosition(move.getNewPosition());
+        if(otherPawn != null) {
+            otherPawn.capture();
+        }
 
         // swap current player
         currentPlayerId = 1 - currentPlayerId;
@@ -37,28 +44,32 @@ final class Game {
             return null;
         }
 
-        return currentPlayer.getPawns().get(pawnId);
-    }
-
-    Pawn findPawnByPosition(Point position) {
-        for(Player player : players) {
-            for(Pawn pawn : player.getPawns()) {
-                if(pawn.getPosition().equals(position)) {
-                    return pawn;
-                }
-            }
+        Pawn pawn = currentPlayer.getPawns().get(pawnId);
+        if(pawn.isCaptured()) {
+            return null;
         }
 
-        return null;
+        return pawn;
     }
-
 
     Player getCurrentPlayer() {
         return getPlayers().get(currentPlayerId);
     }
 
+    Pawn findCurrentPlayerPawnByPosition(Point position) {
+        return getCurrentPlayer().findPawnByPosition(position);
+    }
+
     boolean isFirstPlayerCurrentPlayer() {
         return currentPlayerId == 0;
+    }
+
+    private Player getOtherPlayer() {
+        return getPlayers().get(1 - currentPlayerId);
+    }
+
+    private Pawn findOtherPlayerPawnByPosition(Point position) {
+        return getOtherPlayer().findPawnByPosition(position);
     }
 
     // accessors

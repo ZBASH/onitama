@@ -39,7 +39,9 @@ final class Ui {
 
         for (Player player : players) {
             for (Pawn pawn : player.getPawns()) {
-                render(pawn, player.getColor());
+                if(!pawn.isCaptured()) {
+                    render(pawn, player.getColor());
+                }
             }
         }
     }

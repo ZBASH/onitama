@@ -104,6 +104,42 @@ class UiTest {
         assertEquals(2, actualPawnId);
     }
 
+    @Test
+    void itFlashesAnOutOfBoundsMessage() {
+        MockPrintStream out = new MockPrintStream();
+        Ui ui = new Ui(out, new MockInputStream());
+        ui.render(Board.create(0));
+
+        ui.flash(new PendingMove.PositionOutOfBounds(new Point(1,0)));
+        ui.flush();
+
+        assertEquals("The position (1,0) is out of bounds.", out.getOutput().trim());
+    }
+
+    @Test
+    void itFlashesAPositionIsOccupiedMessage() {
+        MockPrintStream out = new MockPrintStream();
+        Ui ui = new Ui(out, new MockInputStream());
+        ui.render(Board.create(0));
+
+        ui.flash(new PendingMove.PositionWasOccuppied(new Point(1,0)));
+        ui.flush();
+
+        assertEquals("The position (1,0) is occupied.", out.getOutput().trim());
+    }
+
+    @Test
+    void itFlashesAnInvalidPawnIdMessage() {
+        MockPrintStream out = new MockPrintStream();
+        Ui ui = new Ui(out, new MockInputStream());
+        ui.render(Board.create(0));
+
+        ui.flash(new PendingMove.InvalidPawnId(3));
+        ui.flush();
+
+        assertEquals("There is no pawn with id 3", out.getOutput().trim());
+    }
+
     // mocks
     private class MockPrintStream extends PrintStream {
         private ByteArrayOutputStream stream;

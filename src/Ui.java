@@ -10,10 +10,11 @@ final class Ui {
     private PrintStream out;
     private InputStream in;
     private Tile[][] buffer;
+    private String flash;
 
     Ui(PrintStream out, InputStream in) {
         this.out = out;
-        this.in = in;
+        this.in  = in;
     }
 
     // compositing
@@ -58,6 +59,17 @@ final class Ui {
         buffer[y][x] = new Tile('#', color);
     }
 
+    // errors
+    void flash(@NotNull Error error) {
+        if(error instanceof PendingMove.PositionWasOccuppied) {
+            flash = "The position " + ((PendingMove.PositionWasOccuppied) error).getNewPosition() + " is occupied.";
+        } else if (error instanceof PendingMove.PositionOutOfBounds) {
+            flash = "The position " + ((PendingMove.PositionOutOfBounds) error).getNewPosition() + " is out of bounds.";
+        } else if (error instanceof PendingMove.InvalidPawnId) {
+            flash = "There is no pawn with id " + ((PendingMove.InvalidPawnId) error).getPawnId();
+        }
+    }
+
     // display
     void clear() {
         out.print("\033[H\033[2J");
@@ -79,17 +91,24 @@ final class Ui {
         }
 
         buffer = null;
+
+        if(flash != null) {
+            out.println();
+            out.println(flash);
+        }
+
+        flash = null;
     }
 
     // user input
     int pickPawnId() {
         out.println();
-        out.print("enter pawn id [0-9]: ");
+        out.print("enter pawn id [0-4]: ");
 
         Scanner scanner = new Scanner(in);
 
-        int pawnId = -1;
-        while (pawnId == -1) {
+        Integer pawnId = null;
+        while (pawnId == null) {
             String input = scanner.next();
             try {
                 pawnId = Integer.parseInt(input);

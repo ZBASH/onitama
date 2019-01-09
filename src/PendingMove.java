@@ -76,7 +76,7 @@ class PendingMove {
         }
     }
 
-    class InvalidPawnId extends Error {
+    static class InvalidPawnId extends Error {
         private int pawnId;
 
         InvalidPawnId(int pawnId) {
@@ -88,7 +88,7 @@ class PendingMove {
         }
     }
 
-    class PositionOutOfBounds extends Error {
+    static class PositionOutOfBounds extends Error {
         @NotNull
         private Point newPosition;
 
@@ -101,7 +101,7 @@ class PendingMove {
         }
     }
 
-    class PositionWasOccuppied extends Error {
+    static class PositionWasOccuppied extends Error {
         @NotNull
         private Point newPosition;
 

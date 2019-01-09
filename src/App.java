@@ -23,8 +23,9 @@ public class App {
             PendingMove.Result result = pendingMove.getValidMove();
             if (result.getMove() != null) {
                 game.makeMove(result.getMove());
+            } else if(result.getError() != null) {
+                ui.flash(result.getError());
             }
-            // TODO resolve result.getMove()
         }
     }
 

@@ -1,9 +1,8 @@
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 final class Ui {
@@ -18,7 +17,13 @@ final class Ui {
     }
 
     // compositing
-    void render(@NotNull Board board) {
+    void render(@NotNull Game game) {
+        render(game.getBoard());
+        render(game.getCurrentPlayer(), true);
+        render(game.getOtherPlayer(), false);
+    }
+
+    private void render(@NotNull Board board) {
         char[][] grid = board.getGrid();
 
         buffer = new Tile[grid.length][];
@@ -32,21 +37,27 @@ final class Ui {
         }
     }
 
-    void render(@NotNull ArrayList<Player> players) {
+    private void render(@NotNull Player player, boolean isCurrentPlayer) {
         if (buffer == null) {
             throw new NoBoardError();
         }
 
-        for (Player player : players) {
-            for (Pawn pawn : player.getPawns()) {
-                if(!pawn.isCaptured()) {
-                    render(pawn, player.getColor());
-                }
+        int i = 0;
+        for (Pawn pawn : player.getPawns()) {
+            if(!pawn.isCaptured()) {
+                boolean isHighlighted = isCurrentPlayer && i == selectedPawnIndex;
+
+                Color foreground = isHighlighted ? Color.NONE : player.getColor();
+                Color background = isHighlighted ? player.getColor() : Color.NONE;
+
+                render(pawn, foreground, background);
             }
+
+            i++;
         }
     }
 
-    private void render(@NotNull Pawn pawn, Color color) {
+    private void render(@NotNull Pawn pawn, Color foreground, Color background) {
         if (buffer == null) {
             throw new NoBoardError();
         }
@@ -58,7 +69,7 @@ final class Ui {
             throw new OutOfBoardError();
         }
 
-        buffer[y][x] = new Tile('#', color);
+        buffer[y][x] = new Tile('#', foreground, background);
     }
 
     // errors
@@ -103,20 +114,33 @@ final class Ui {
     }
 
     // user input
-    int pickPawnId() {
-        out.println();
-        out.print("enter pawn id [0-4]: ");
+    private int selectedPawnIndex = 0;
 
-        Scanner scanner = new Scanner(in);
+    Integer pickPawnId() throws IOException, InterruptedException {
+        out.println();
+        out.print("select a pawn [< > enter]");
+
+        String[] setRaw = {"/bin/sh", "-c", "stty raw </dev/tty"};
+        Runtime.getRuntime().exec(setRaw).waitFor();
 
         Integer pawnId = null;
-        while (pawnId == null) {
-            String input = scanner.next();
-            try {
-                pawnId = Integer.parseInt(input);
-            } catch (NumberFormatException ignored) {
-                // continue with loop until success
+        try {
+            int code = System.console().reader().read();
+            switch(code) {
+                case 37:
+                    selectedPawnIndex--;
+                    break;
+                case 39:
+                    selectedPawnIndex++;
+                    break;
+                default:
+                    break;
             }
+        } catch (IOException error) {
+            out.println("error");
+        } finally {
+            String[] setCooked = {"/bin/sh", "-c", "stty cooked </dev/tty"};
+            Runtime.getRuntime().exec(setCooked).waitFor();
         }
 
         out.println();
@@ -134,15 +158,17 @@ final class Ui {
     // tile
     private class Tile {
         private char glyph;
-        private Color color;
+        private Color foreground;
+        private Color background;
 
         Tile(char glyph) {
-            this(glyph, Color.NONE);
+            this(glyph, Color.NONE, Color.NONE);
         }
 
-        Tile(char glyph, Color color) {
-            this.glyph = glyph;
-            this.color = color;
+        Tile(char glyph, Color foreground, Color background) {
+            this.glyph      = glyph;
+            this.foreground = foreground;
+            this.background = background;
         }
 
         String render() {
@@ -150,7 +176,11 @@ final class Ui {
         }
 
         private String prefix() {
-            switch (color) {
+            return prefixBackground() + prefixForeground();
+        }
+
+        private String prefixForeground() {
+            switch (foreground) {
                 case RED:
                     return "\033[0;31m";
                 case BLUE:
@@ -160,13 +190,24 @@ final class Ui {
             }
         }
 
-        private String suffix() {
-            switch (color) {
-                case NONE:
-                    return "";
+        private String prefixBackground() {
+            switch (background) {
+                case RED:
+                    return "\033[41;1m";
+                case BLUE:
+                    return "\033[44;1m";
                 default:
-                    return "\033[0m";
+                    return "";
             }
+        }
+
+
+        private String suffix() {
+            if(foreground == Color.NONE && background == Color.NONE) {
+                return "";
+            }
+
+            return "\033[0m";
         }
     }
 }

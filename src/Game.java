@@ -64,7 +64,7 @@ final class Game {
         return currentPlayerId == 0;
     }
 
-    private Player getOtherPlayer() {
+    Player getOtherPlayer() {
         return getPlayers().get(1 - currentPlayerId);
     }
 

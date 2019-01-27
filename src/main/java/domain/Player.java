@@ -1,8 +1,12 @@
+package domain;
+
+import core.Color;
+import core.Config;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-class Player {
+public final class Player {
     private Color color;
     private ArrayList<Pawn> pawns;
     private Pawn pawnToMove;
@@ -34,17 +38,18 @@ class Player {
     }
 
     // accessors
-    ArrayList<Pawn> getPawns() {
+    public ArrayList<Pawn> getPawns() {
         return pawns;
     }
 
-    Color getColor() {
+    public Color getColor() {
         return color;
     }
 
     Pawn pawnToMove() {
         return pawnToMove;
     }
+
     // factories
     static Player createAtRow(int row) {
         return createAtRow(row, Config.BOARD_SIZE);

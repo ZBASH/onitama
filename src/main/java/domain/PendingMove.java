@@ -1,7 +1,9 @@
+package domain;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-class PendingMove {
+public final class PendingMove {
     // dependency
     @NotNull
     private Game game;
@@ -13,22 +15,22 @@ class PendingMove {
     @Nullable
     private Point card;
 
-    PendingMove(@NotNull Game game) {
+    public PendingMove(@NotNull Game game) {
         this.game = game;
     }
 
     // commands
-    void pickPawn(int pawnId) {
+    public void pickPawn(int pawnId) {
         this.pawnId = pawnId;
     }
 
-    void pickCard(@NotNull Point card) {
+    public void pickCard(@NotNull Point card) {
         this.card = card;
     }
 
     // queries
     @NotNull
-    Result getValidMove() {
+    public Result getValidMove() {
         Pawn pawn = game.findCurrentPlayerPawnById(pawnId);
         if(pawn == null) {
             return new Result(new InvalidPawnId(pawnId));
@@ -51,7 +53,7 @@ class PendingMove {
         return new Result(new Move(pawnId, newPosition));
     }
 
-    class Result {
+    public class Result {
         @Nullable
         private Error error;
 
@@ -67,28 +69,30 @@ class PendingMove {
         }
 
         // accessors
-        @Nullable Error getError() {
+        @Nullable
+        public Error getError() {
             return error;
         }
 
-        @Nullable Move getMove() {
+        @Nullable
+        public Move getMove() {
             return move;
         }
     }
 
-    static class InvalidPawnId extends Error {
+    public static class InvalidPawnId extends Error {
         private int pawnId;
 
         InvalidPawnId(int pawnId) {
             this.pawnId = pawnId;
         }
 
-        int getPawnId() {
+        public int getPawnId() {
             return pawnId;
         }
     }
 
-    static class PositionOutOfBounds extends Error {
+    public static class PositionOutOfBounds extends Error {
         @NotNull
         private Point newPosition;
 
@@ -96,12 +100,13 @@ class PendingMove {
             this.newPosition = newPosition;
         }
 
-        @NotNull Point getNewPosition() {
+        @NotNull
+        public Point getNewPosition() {
             return newPosition;
         }
     }
 
-    static class PositionWasOccuppied extends Error {
+    public static class PositionWasOccuppied extends Error {
         @NotNull
         private Point newPosition;
 
@@ -109,7 +114,8 @@ class PendingMove {
             this.newPosition = newPosition;
         }
 
-        @NotNull Point getNewPosition() {
+        @NotNull
+        public Point getNewPosition() {
             return newPosition;
         }
     }

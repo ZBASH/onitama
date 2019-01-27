@@ -1,18 +1,23 @@
+package domain;
+
+import core.Color;
+import core.Config;
+
 import java.util.ArrayList;
 
-final class Game {
+public final class Game {
     private int currentPlayerId;
     private Board board;
     private ArrayList<Player> players;
 
-    Game() {
+    public Game() {
         currentPlayerId = 0;
         board   = Board.create();
         players = new ArrayList<>(2);
     }
 
     // command
-    void start() {
+    public void start() {
         Player player1 = Player.createAtRow(0);
         player1.chooseColor(Color.RED);
         players.add(player1);
@@ -22,7 +27,7 @@ final class Game {
         players.add(player2);
     }
 
-    void makeMove(Move move) {
+    public void makeMove(Move move) {
         // current player makes move
         Pawn pawn = findCurrentPlayerPawnById(move.getPawnId());
         pawn.moveTo(move.getNewPosition());
@@ -52,7 +57,7 @@ final class Game {
         return pawn;
     }
 
-    Player getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return getPlayers().get(currentPlayerId);
     }
 
@@ -64,7 +69,7 @@ final class Game {
         return currentPlayerId == 0;
     }
 
-    Player getOtherPlayer() {
+    public Player getOtherPlayer() {
         return getPlayers().get(1 - currentPlayerId);
     }
 
@@ -73,7 +78,7 @@ final class Game {
     }
 
     // accessors
-    Board getBoard() {
+    public Board getBoard() {
         return board;
     }
 

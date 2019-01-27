@@ -1,4 +1,6 @@
-class Pawn {
+package domain;
+
+public final class Pawn {
     private Point position;
     private Boolean isCaptured;
 
@@ -21,15 +23,15 @@ class Pawn {
         return position;
     }
 
-    int getX() {
+    public int getX() {
         return position.getX();
     }
 
-    int getY() {
+    public int getY() {
         return position.getY();
     }
 
-    boolean isCaptured() {
+    public boolean isCaptured() {
         return isCaptured;
     }
 }

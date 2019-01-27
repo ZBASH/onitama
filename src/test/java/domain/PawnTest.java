@@ -1,3 +1,7 @@
+package domain;
+
+import domain.Pawn;
+import domain.Point;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

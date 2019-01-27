@@ -1,3 +1,9 @@
+package domain;
+
+import domain.Game;
+import domain.Move;
+import domain.PendingMove;
+import domain.Point;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

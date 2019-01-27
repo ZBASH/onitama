@@ -1,3 +1,8 @@
+import domain.Game;
+import domain.PendingMove;
+import domain.Point;
+import view.Ui;
+
 import java.io.IOException;
 
 public class App {

@@ -1,4 +1,6 @@
-public class Move {
+package domain;
+
+public final class Move {
     private int   pawnId;
     private Point newPosition;
 

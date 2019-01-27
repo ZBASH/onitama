@@ -1,3 +1,9 @@
+package domain;
+
+import core.Color;
+import domain.Pawn;
+import domain.Player;
+import domain.Point;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

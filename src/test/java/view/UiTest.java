@@ -1,3 +1,5 @@
+package view;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -8,34 +10,34 @@ import static org.junit.jupiter.api.Assertions.*;
 class UiTest {
     @Test
     void itRequiresABoard() {
-//        Ui ui = new Ui(new MockPrintStream(), new MockInputStream());
+//        view.Ui ui = new view.Ui(new MockPrintStream(), new MockInputStream());
 //
-//        assertThrows(Ui.NoBoardError.class, () -> ui.flush());
-//        assertThrows(Ui.NoBoardError.class, () -> ui.render(new ArrayList<>()));
+//        assertThrows(view.Ui.NoBoardError.class, () -> ui.flush());
+//        assertThrows(view.Ui.NoBoardError.class, () -> ui.render(new ArrayList<>()));
     }
 
     @Test
     void itRequiresPawnsInsideTheBoard() {
-//        Ui ui = new Ui(new MockPrintStream(), new MockInputStream());
-//        ui.render(Board.create(0));
+//        view.Ui ui = new view.Ui(new MockPrintStream(), new MockInputStream());
+//        ui.render(domain.Board.create(0));
 //
-//        ArrayList<Player> players = new ArrayList<>();
-//        players.add(Player.createAtRow(1, 1));
+//        ArrayList<domain.Player> players = new ArrayList<>();
+//        players.add(domain.Player.createAtRow(1, 1));
 //
-//        assertThrows(Ui.OutOfBoardError.class, () -> ui.render(players));
+//        assertThrows(view.Ui.OutOfBoardError.class, () -> ui.render(players));
     }
 
     @Test
     void itPrintsTheBoard() {
 //        MockPrintStream out = new MockPrintStream();
 //
-//        Ui ui = new Ui(out, new MockInputStream());
+//        view.Ui ui = new view.Ui(out, new MockInputStream());
 //
 //        String expected =
 //            "* *\n" +
 //            "* *\n";
 //
-//        ui.render(Board.create(2));
+//        ui.render(domain.Board.create(2));
 //        ui.flush();
 //
 //        assertEquals(expected, out.getOutput());
@@ -45,17 +47,17 @@ class UiTest {
     void itPrintsPlayerPawnsOnTheCorrectRow() {
 //        MockPrintStream out = new MockPrintStream();
 //
-//        Ui ui = new Ui(out, new MockInputStream());
+//        view.Ui ui = new view.Ui(out, new MockInputStream());
 //
 //        String expected =
 //            "* *\n" +
 //            "# #\n";
 //
-//        ArrayList<Player> players = new ArrayList<>(1);
-//        Player player = Player.createAtRow(1, 2);
+//        ArrayList<domain.Player> players = new ArrayList<>(1);
+//        domain.Player player = domain.Player.createAtRow(1, 2);
 //        players.add(player);
 //
-//        ui.render(Board.create(2));
+//        ui.render(domain.Board.create(2));
 //        ui.render(players);
 //        ui.flush();
 //
@@ -66,18 +68,18 @@ class UiTest {
     void itPrintsPlayerPawnsOfTheCorrectColor() {
 //        MockPrintStream out = new MockPrintStream();
 //
-//        Ui ui = new Ui(out, new MockInputStream());
+//        view.Ui ui = new view.Ui(out, new MockInputStream());
 //
 //        String expected =
 //            "\033[0;31m#\033[0m\n";
 //
-//        Player player = Player.createAtRow(0, 1);
-//        player.chooseColor(Color.RED);
+//        domain.Player player = domain.Player.createAtRow(0, 1);
+//        player.chooseColor(core.Color.RED);
 //
-//        ArrayList<Player> players = new ArrayList<>(1);
+//        ArrayList<domain.Player> players = new ArrayList<>(1);
 //        players.add(player);
 //
-//        ui.render(Board.create(1));
+//        ui.render(domain.Board.create(1));
 //        ui.render(players);
 //        ui.flush();
 //
@@ -87,7 +89,7 @@ class UiTest {
     @Test
     void itPicksAPawnId() {
 //        MockInputStream in = new MockInputStream();
-//        Ui ui = new Ui(new MockPrintStream(), in);
+//        view.Ui ui = new view.Ui(new MockPrintStream(), in);
 //
 //        in.setInput("2\n");
 //        int actualPawnId = ui.pickPawnId();
@@ -97,7 +99,7 @@ class UiTest {
     @Test
     void itRetriesUntilThePawnIdIsANumber() {
 //        MockInputStream in = new MockInputStream();
-//        Ui ui = new Ui(new MockPrintStream(), in);
+//        view.Ui ui = new view.Ui(new MockPrintStream(), in);
 //
 //        in.setInput("$\n2\n");
 //        int actualPawnId = ui.pickPawnId();
@@ -107,10 +109,10 @@ class UiTest {
     @Test
     void itFlashesAnOutOfBoundsMessage() {
 //        MockPrintStream out = new MockPrintStream();
-//        Ui ui = new Ui(out, new MockInputStream());
-//        ui.render(Board.create(0));
+//        view.Ui ui = new view.Ui(out, new MockInputStream());
+//        ui.render(domain.Board.create(0));
 //
-//        ui.flash(new PendingMove.PositionOutOfBounds(new Point(1,0)));
+//        ui.flash(new domain.PendingMove.PositionOutOfBounds(new domain.Point(1,0)));
 //        ui.flush();
 //
 //        assertEquals("The position (1,0) is out of bounds.", out.getOutput().trim());
@@ -119,10 +121,10 @@ class UiTest {
     @Test
     void itFlashesAPositionIsOccupiedMessage() {
 //        MockPrintStream out = new MockPrintStream();
-//        Ui ui = new Ui(out, new MockInputStream());
-//        ui.render(Board.create(0));
+//        view.Ui ui = new view.Ui(out, new MockInputStream());
+//        ui.render(domain.Board.create(0));
 //
-//        ui.flash(new PendingMove.PositionWasOccuppied(new Point(1,0)));
+//        ui.flash(new domain.PendingMove.PositionWasOccuppied(new domain.Point(1,0)));
 //        ui.flush();
 //
 //        assertEquals("The position (1,0) is occupied.", out.getOutput().trim());
@@ -131,10 +133,10 @@ class UiTest {
     @Test
     void itFlashesAnInvalidPawnIdMessage() {
 //        MockPrintStream out = new MockPrintStream();
-//        Ui ui = new Ui(out, new MockInputStream());
-//        ui.render(Board.create(0));
+//        view.Ui ui = new view.Ui(out, new MockInputStream());
+//        ui.render(domain.Board.create(0));
 //
-//        ui.flash(new PendingMove.InvalidPawnId(3));
+//        ui.flash(new domain.PendingMove.InvalidPawnId(3));
 //        ui.flush();
 //
 //        assertEquals("There is no pawn with id 3", out.getOutput().trim());

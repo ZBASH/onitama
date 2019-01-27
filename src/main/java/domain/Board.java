@@ -1,3 +1,7 @@
+package domain;
+
+import core.Config;
+
 public final class Board {
     // fields
     private char[][] grid;

@@ -1,23 +1,28 @@
+package view;
+
+import core.Color;
+import domain.*;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
 
-final class Ui {
+import static core.Color.*;
+
+public final class Ui {
     private PrintStream out;
     private InputStream in;
     private Tile[][] buffer;
     private String flash;
 
-    Ui(PrintStream out, InputStream in) {
+    public Ui(PrintStream out, InputStream in) {
         this.out = out;
         this.in  = in;
     }
 
     // compositing
-    void render(@NotNull Game game) {
+    public void render(@NotNull Game game) {
         render(game.getBoard());
         render(game.getCurrentPlayer(), true);
         render(game.getOtherPlayer(), false);
@@ -47,8 +52,8 @@ final class Ui {
             if(!pawn.isCaptured()) {
                 boolean isHighlighted = isCurrentPlayer && i == selectedPawnIndex;
 
-                Color foreground = isHighlighted ? Color.NONE : player.getColor();
-                Color background = isHighlighted ? player.getColor() : Color.NONE;
+                Color foreground = isHighlighted ? NONE : player.getColor();
+                Color background = isHighlighted ? player.getColor() : NONE;
 
                 render(pawn, foreground, background);
             }
@@ -73,7 +78,7 @@ final class Ui {
     }
 
     // errors
-    void flash(@NotNull Error error) {
+    public void flash(@NotNull Error error) {
         if(error instanceof PendingMove.PositionWasOccuppied) {
             flash = "The position " + ((PendingMove.PositionWasOccuppied) error).getNewPosition() + " is occupied.";
         } else if (error instanceof PendingMove.PositionOutOfBounds) {
@@ -84,12 +89,12 @@ final class Ui {
     }
 
     // display
-    void clear() {
+    public void clear() {
         out.print("\033[H\033[2J");
         out.flush();
     }
 
-    void flush() {
+    public void flush() {
         if (buffer == null) {
             throw new NoBoardError();
         }
@@ -116,7 +121,7 @@ final class Ui {
     // user input
     private int selectedPawnIndex = 0;
 
-    Integer pickPawnId() throws IOException, InterruptedException {
+    public Integer pickPawnId() throws IOException, InterruptedException {
         out.println();
         out.print("select a pawn [< > enter]");
 
@@ -162,7 +167,7 @@ final class Ui {
         private Color background;
 
         Tile(char glyph) {
-            this(glyph, Color.NONE, Color.NONE);
+            this(glyph, NONE, NONE);
         }
 
         Tile(char glyph, Color foreground, Color background) {
@@ -172,7 +177,7 @@ final class Ui {
         }
 
         String render() {
-            return prefix() + String.valueOf(glyph) + suffix();
+            return prefix() + glyph + suffix();
         }
 
         private String prefix() {
@@ -203,7 +208,7 @@ final class Ui {
 
 
         private String suffix() {
-            if(foreground == Color.NONE && background == Color.NONE) {
+            if(foreground == NONE && background == NONE) {
                 return "";
             }
 

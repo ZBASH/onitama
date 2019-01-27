@@ -5,19 +5,32 @@ import java.util.ArrayList;
 class Player {
     private Color color;
     private ArrayList<Pawn> pawns;
+    private Pawn pawnToMove;
 
     Player() {
         this.color = Color.NONE;
         this.pawns = new ArrayList<>();
     }
 
-    // mutators
+    // commands
     void chooseColor(@NotNull Color color) {
         this.color = color;
     }
 
-    void movePawn(int index, Point position) {
-        pawns.get(index).moveTo(position);
+    void movePawn(Pawn pawn, Point position) {
+        pawnToMove = pawn;
+        pawnToMove.moveTo(position);
+    }
+
+    // queries
+    Pawn findPawnByPosition(Point position) {
+        for(Pawn pawn : getPawns()) {
+            if(pawn.getPosition().equals(position)) {
+                return pawn;
+            }
+        }
+
+        return null;
     }
 
     // accessors
@@ -29,6 +42,9 @@ class Player {
         return color;
     }
 
+    Pawn pawnToMove() {
+        return pawnToMove;
+    }
     // factories
     static Player createAtRow(int row) {
         return createAtRow(row, Config.BOARD_SIZE);

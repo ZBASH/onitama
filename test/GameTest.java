@@ -22,4 +22,29 @@ class GameTest {
         assertEquals(4, player.getPawns().get(0).getY());
         assertEquals(Color.BLUE, player.getColor());
     }
+
+    @Test
+    void itMakesAMove() {
+        Game game = new Game();
+        game.start();
+        Pawn pawn = game.findCurrentPlayerPawnById(2);
+
+        Move move = new Move(2, new Point(2, 1));
+        game.makeMove(move);
+
+        assertEquals(move.getNewPosition(), pawn.getPosition());
+    }
+
+    @Test
+    void itSwapsTheCurrentPlayerAfterMakingAMove() {
+        Game game = new Game();
+        game.start();
+
+        Player previousPlayer = game.getCurrentPlayer();
+
+        Move move = new Move(2, new Point(2, 1));
+        game.makeMove(move);
+
+        assertNotEquals(previousPlayer, game.getCurrentPlayer());
+    }
 }

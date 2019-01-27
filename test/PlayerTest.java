@@ -40,7 +40,8 @@ class PlayerTest {
     @Test
     void itMovesAPawn() {
         Player player = Player.createAtRow(0, 1);
-        player.movePawn(0, new Point(4, 3));
+
+        player.movePawn(player.getPawns().get(0), new Point(4, 3));
         assertEquals(4, player.getPawns().get(0).getX());
         assertEquals(3, player.getPawns().get(0).getY());
     }

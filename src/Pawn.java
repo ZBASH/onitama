@@ -1,25 +1,35 @@
-public class Pawn {
-    Point position;
+class Pawn {
+    private Point position;
+    private Boolean isCaptured;
 
     Pawn(Point position) {
+        this.position   = position;
+        this.isCaptured = false;
+    }
+
+    // commands
+    void moveTo(Point position) {
         this.position = position;
     }
 
-    // mutations
-    public void moveTo(Point position) {
-        this.position = position;
+    void capture() {
+        isCaptured = true;
     }
 
     // accessors
-    public Point getPosition() {
+    Point getPosition() {
         return position;
     }
 
-    public int getX() {
+    int getX() {
         return position.getX();
     }
 
-    public int getY() {
+    int getY() {
         return position.getY();
+    }
+
+    boolean isCaptured() {
+        return isCaptured;
     }
 }

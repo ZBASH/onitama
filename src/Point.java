@@ -7,6 +7,21 @@ public class Point {
         this.y = y;
     }
 
+    // operators
+    Point add(Point other) {
+        return new Point(
+            x + other.getX(),
+            y + other.getY()
+        );
+    }
+
+    Point mirrorX() {
+        return new Point(
+            x,
+            y * -1
+        );
+    }
+
     // accessors
     public int getX() {
         return x;

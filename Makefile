@@ -1,21 +1,22 @@
 .DEFAULT_GOAL := help
 
-# -- context --
-sources=$(shell find src/ -type f -name "*.java")
-
 # -- run/stop --
 ## runs the cli
-r:
-	java -cp out/cli App
+r: b
+	mvn exec:java -Dexec.mainClass=App
 .PHONY: r
 
 # -- build --
 ## builds the cli
 b:
-	javac $(sources) \
-		-d out/cli \
-		-cp ~/.m2/repository/org/jetbrains/annotations/16.0.2/annotations-16.0.2.jar
+	mvn compile
 .PHONY: b
+
+# -- test --
+## runs the cli tests
+t:
+	mvn test
+.PHONY: t
 
 # -- help --
 help:

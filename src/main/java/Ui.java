@@ -125,7 +125,7 @@ final class Ui {
 
         Integer pawnId = null;
         try {
-            int code = System.console().reader().read();
+            int code = in.read();
             switch(code) {
                 case 37:
                     selectedPawnIndex--;

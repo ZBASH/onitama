@@ -26,6 +26,7 @@ public class App {
             if(pawnId == null) {
                 continue;
             }
+
             pendingMove.pickPawn(pawnId);
             pendingMove.pickCard(new Point(0, 1));
 

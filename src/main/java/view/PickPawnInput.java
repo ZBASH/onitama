@@ -23,7 +23,6 @@ class PickPawnInput {
         String[] setRaw = {"/bin/sh", "-c", "stty raw </dev/tty"};
         Runtime.getRuntime().exec(setRaw).waitFor();
 
-        Integer pawnId = null;
         try {
             int code = mIn.read();
             switch(code) {

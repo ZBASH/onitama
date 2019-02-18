@@ -1,17 +1,17 @@
 import domain.Game;
 import domain.PendingMove;
 import domain.Point;
-import view.Ui;
+import view.RootView;
 
 import java.io.IOException;
 
 public class App {
     private Game game;
-    private Ui ui;
+    private RootView view;
 
     App() {
         game = new Game();
-        ui   = new Ui(System.out, System.in);
+        view = new RootView(System.out, System.in);
     }
 
     private void start() throws IOException, InterruptedException {
@@ -23,11 +23,11 @@ public class App {
                 pendingMove = new PendingMove(game);
             }
 
-            ui.clear();
-            ui.render(game);
-            ui.flush();
+            view.clear();
+            view.renderGame(game);
+            view.draw();
 
-            Integer pawnId = ui.pickPawnId();
+            Integer pawnId = view.pickPawnId();
             if(pawnId == null) {
                 continue;
             }
@@ -39,7 +39,7 @@ public class App {
             if (result.getMove() != null) {
                 game.makeMove(result.getMove());
             } else if(result.getError() != null) {
-                ui.flash(result.getError());
+                view.renderError(result.getError());
             }
         }
     }

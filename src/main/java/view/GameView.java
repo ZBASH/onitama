@@ -14,9 +14,9 @@ class GameView {
         mPlayerView = new PlayerView(mBuffer);
     }
 
-    void render(@NotNull Game game, Integer selectedPawnIndex) {
+    void render(@NotNull Game game, int selectedPawnIndex) {
         mBoardView.render(game.getBoard());
         mPlayerView.render(game.getCurrentPlayer(), true, selectedPawnIndex);
-        mPlayerView.render(game.getOtherPlayer(), true, selectedPawnIndex);
+        mPlayerView.render(game.getOtherPlayer(), false, selectedPawnIndex);
     }
 }

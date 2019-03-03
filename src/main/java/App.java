@@ -1,6 +1,8 @@
 import domain.Game;
 import domain.PendingMove;
 import domain.Point;
+import org.jline.terminal.Terminal;
+import org.jline.terminal.TerminalBuilder;
 import view.RootView;
 
 import java.io.IOException;
@@ -9,9 +11,9 @@ public class App {
     private Game game;
     private RootView view;
 
-    App() {
+    private App() throws IOException {
         game = new Game();
-        view = new RootView(System.out, System.in);
+        view = new RootView(buildTerminal());
     }
 
     private void start() throws IOException, InterruptedException {
@@ -44,14 +46,26 @@ public class App {
         }
     }
 
+    // dependencies
+    private static Terminal buildTerminal() throws IOException {
+        Terminal terminal = TerminalBuilder.builder()
+            .nativeSignals(true)
+            .signalHandler(Terminal.SignalHandler.SIG_IGN)
+            .build();
+
+        terminal.enterRawMode();
+
+        return terminal;
+    }
+
     // main
     public static void main(String[] args) {
-        App app = new App();
-
         try {
+            App app = new App();
             app.start();
         } catch (IOException | InterruptedException error) {
             error.printStackTrace();
         }
     }
 }
+

@@ -2,26 +2,25 @@ package view;
 
 import domain.*;
 import org.jetbrains.annotations.NotNull;
+import org.jline.terminal.Terminal;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 
 public final class RootView {
-    private @NotNull PrintStream   out;
-    private @NotNull InputStream   in;
+    private @NotNull Terminal      mTerminal;
     private @NotNull TileBuffer    mBuffer;
     private @NotNull Flash         mFlash;
     private @NotNull GameView      mGameView;
     private @NotNull PickPawnInput mPickPawnInput;
 
-    public RootView(@NotNull PrintStream out, @NotNull InputStream in) {
-        this.out  = out;
-        this.in   = in;
-        mFlash    = new Flash(this.out);
-        mBuffer   = new TileBuffer(this.out);
+    public RootView(@NotNull Terminal terminal) {
+        mTerminal = terminal;
+        mFlash    = new Flash(terminal);
+        mBuffer   = new TileBuffer(terminal);
         mGameView = new GameView(mBuffer);
-        mPickPawnInput = new PickPawnInput(this.in, this.out);
+        mPickPawnInput = new PickPawnInput(terminal);
     }
 
     // commands
@@ -41,12 +40,13 @@ public final class RootView {
 
     // draw
     public void clear() {
-        out.print("\033[H\033[2J");
-        out.flush();
+        mTerminal.writer().print("\033[H\033[2J");
+        mTerminal.writer().flush();
     }
 
     public void draw() {
         mBuffer.draw();
         mFlash.draw();
+        mTerminal.flush();
     }
 }

@@ -2,17 +2,15 @@ package view;
 
 import domain.PendingMove;
 import org.jetbrains.annotations.NotNull;
+import org.jline.terminal.Terminal;
 
-import java.io.InputStream;
-import java.io.PrintStream;
-
-public class Flash {
-    private String      mText;
-    private PrintStream mOut;
+class Flash {
+    private String   mText;
+    private Terminal mTerminal;
 
     // lifetime
-    Flash(PrintStream out) {
-        mOut = out;
+    Flash(Terminal terminal) {
+        mTerminal = terminal;
     }
 
     // commands
@@ -28,8 +26,8 @@ public class Flash {
 
     void draw() {
         if(mText != null) {
-            mOut.println();
-            mOut.println(mText);
+            mTerminal.writer().println();
+            mTerminal.writer().println(mText);
         }
 
         mText = null;

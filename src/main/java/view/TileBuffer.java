@@ -1,16 +1,14 @@
 package view;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.PrintStream;
+import org.jline.terminal.Terminal;
 
 class TileBuffer {
-    private @NotNull PrintStream mOut;
+    private Terminal mTerminal;
     private Tile[][] mBuffer;
 
     // lifetime
-    TileBuffer(@NotNull PrintStream out) {
-        mOut = out;
+    TileBuffer(Terminal terminal) {
+        mTerminal = terminal;
     }
 
     // commands
@@ -31,8 +29,8 @@ class TileBuffer {
             int i = 0;
 
             for (Tile tile : row) {
-                mOut.print(tile.render());
-                mOut.print(i++ == row.length - 1 ? '\n' : ' ');
+                mTerminal.writer().print(tile.render());
+                mTerminal.writer().print(i++ == row.length - 1 ? '\n' : ' ');
             }
         }
 

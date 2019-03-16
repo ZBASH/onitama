@@ -1,14 +1,18 @@
 import Foundation
 import Darwin.POSIX.termios
 
-class Terminal {
+public class Terminal {
   // properties
   private var rawTerm: termios?
-  private let input  = FileHandle.standardInput
-  private let output = FileHandle.standardOutput
+  private let input: FileHandle  = .standardInput
+  private let output: FileHandle = .standardOutput
+  
+  // lifetime
+  public init() {
+  }
   
   // raw
-  var isRaw: Bool {
+  public var isRaw: Bool {
     get {
       return rawTerm != nil
     }
@@ -24,7 +28,7 @@ class Terminal {
   }
   
   // raw/queries
-  func read() -> UInt8? {
+  public func read() -> UInt8? {
     var char: UInt8 = 0
     
     if Darwin.read(input.fileDescriptor, &char, 1) == 1 {
@@ -56,16 +60,3 @@ class Terminal {
     rawTerm = nil
   }
 }
-//
-//var char: UInt8 = 0
-//while read(stdIn.fileDescriptor, &char, 1) == 1 {
-//  if char == 0x04 { // detect EOF (Ctrl+D)
-//    break
-//  }
-//
-//  print(char)
-//}
-//
-//// It would be also nice to disable raw input when exiting the app.
-//restoreRawMode(fileHandle: stdIn, originalTerm: originalTerm)
-//

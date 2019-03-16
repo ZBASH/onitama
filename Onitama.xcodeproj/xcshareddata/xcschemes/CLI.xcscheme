@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "onitama::onitama"
-               BuildableName = "onitama"
-               BlueprintName = "onitama"
-               ReferencedContainer = "container:onitama.xcodeproj">
+               BlueprintIdentifier = "Onitama::CLI"
+               BuildableName = "CLI"
+               BlueprintName = "CLI"
+               ReferencedContainer = "container:Onitama.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "onitama::onitamaTests"
-               BuildableName = "onitamaTests.xctest"
-               BlueprintName = "onitamaTests"
-               ReferencedContainer = "container:onitama.xcodeproj">
+               BlueprintIdentifier = "Onitama::OnitamaTests"
+               BuildableName = "OnitamaTests.xctest"
+               BlueprintName = "OnitamaTests"
+               ReferencedContainer = "container:Onitama.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,10 +56,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "onitama::onitama"
-            BuildableName = "onitama"
-            BlueprintName = "onitama"
-            ReferencedContainer = "container:onitama.xcodeproj">
+            BlueprintIdentifier = "Onitama::CLI"
+            BuildableName = "CLI"
+            BlueprintName = "CLI"
+            ReferencedContainer = "container:Onitama.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

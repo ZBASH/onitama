@@ -1,6 +1,8 @@
+import Onitama
+
 print("Hello, world!")
 
-let terminal = Terminal()
+let terminal = Onitama.Terminal()
 
 terminal.isRaw = true
 

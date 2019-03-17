@@ -1,24 +1,31 @@
-struct Point {
+struct Point: Equatable {
+  // properties
   let x: Int
   let y: Int
 
+  // lifetime
+  init(_ x: Int, _ y: Int) {
+    self.x = x
+    self.y = y
+  }
+
   // operators
-  static func +(left: Point, right: Point) -> Point {
+  func mirrorX() -> Point {
     return Point(
-      x: left.x + right.x,
-      y: left.y + right.y
+      x,
+      y * -1
     )
   }
 
-  func mirrorX() -> Point {
+  static func +(left: Point, right: Point) -> Point {
     return Point(
-      x: x,
-      y: y * -1
+      left.x + right.x,
+      left.y + right.y
     )
   }
 
   // factories
   static func zero() -> Point {
-    return Point(x: 0, y: 0)
+    return Point(0, 0)
   }
 }

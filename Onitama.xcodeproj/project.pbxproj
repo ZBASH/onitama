@@ -36,6 +36,7 @@
 		10CFBB54223DCDB100DA56F8 /* PawnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFBB52223DCDAC00DA56F8 /* PawnTests.swift */; };
 		10CFBB57223DD9FB00DA56F8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFBB55223DCF0100DA56F8 /* Player.swift */; };
 		10CFBB59223DDE0700DA56F8 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFBB58223DDE0700DA56F8 /* PlayerTests.swift */; };
+		CD5D64CB22483B1500EE32D6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5D64C9224837CF00EE32D6 /* Board.swift */; };
 		OBJ_32 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_34 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
 		OBJ_41 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Color.swift */; };
@@ -83,6 +84,7 @@
 		10CFBB52223DCDAC00DA56F8 /* PawnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawnTests.swift; sourceTree = "<group>"; };
 		10CFBB55223DCF0100DA56F8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		10CFBB58223DDE0700DA56F8 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
+		CD5D64C9224837CF00EE32D6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		OBJ_14 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				OBJ_16 /* Pawn.swift */,
 				OBJ_17 /* Point.swift */,
 				10CFBB55223DCF0100DA56F8 /* Player.swift */,
+				CD5D64C9224837CF00EE32D6 /* Board.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -192,7 +195,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -200,7 +203,6 @@
 				OBJ_18 /* Tests */,
 				OBJ_23 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -303,7 +305,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_23 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -335,6 +337,7 @@
 				OBJ_42 /* Config.swift in Sources */,
 				OBJ_43 /* Terminal.swift in Sources */,
 				10CFBB51223DC4DE00DA56F8 /* Pawn.swift in Sources */,
+				CD5D64CB22483B1500EE32D6 /* Board.swift in Sources */,
 				10CFBB57223DD9FB00DA56F8 /* Player.swift in Sources */,
 				OBJ_45 /* Point.swift in Sources */,
 			);

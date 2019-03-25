@@ -1,9 +1,9 @@
 struct Board: Equatable {
   // properties
-  var grid: [Character]
+  var grid: [[String]]
   
   //lifetime
-  init(grid: [Character]) {
+  init(grid: [[String]]) {
     self.grid = grid
   }
   
@@ -16,11 +16,11 @@ struct Board: Equatable {
   
   // factories
   static func create() -> Board {
-    return create(Config.Board.size)
+    return create(size: Config.Board.size)
   }
   
   static func create(size: Int) -> Board {
-    var grid = [[Character]](repeating: [Character](repeating: Config.Board.space, count: size), count: size)
+    let grid = [[String]](repeating: [String](repeating: Config.Board.space, count: size), count: size)
     return Board.init(grid: grid)
   }
   

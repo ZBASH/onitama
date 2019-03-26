@@ -7,9 +7,9 @@ final class GameTests: XCTestCase {
     let game = Game.init()
     game.start()
     
-    let player = game.pawns[0]
+    let player = game.players[0]
     
-    XCTAssertEqual(player.pawns[0].y, 0)
+    XCTAssertEqual(player.pawns[0].position.y, 0)
     XCTAssertEqual(player.color, Color.red)
   }
   
@@ -19,31 +19,31 @@ final class GameTests: XCTestCase {
     
     let player = game.players[1]
     
-    XCTAssertEqual(player.pawn[0].y, 4)
+    XCTAssertEqual(player.pawns[0].position.y, 4)
     XCTAssertEqual(player.color, Color.blue)
   }
   
   func testItMakesAMove() {
     let game = Game.init()
     game.start()
-    let pawn = game.findCurrentPlayerPawnById(2)
+    let pawn = game.findCurrentPlayerPawn(byId: 2)
     
-    let move = Move(2, Point(2, 1))
-    game.makeMove(move)
+    let move = Move(pawnId: 2, newPosition: Point(2, 1))
+    game.makeMove(move: move)
     
-    XCTAssertEqual(pawn.position, move.newPoistion
+    XCTAssertEqual(pawn?.position, move.newPosition)
   }
   
   func testItSwapsTheCurrentPlayerAfterMakingAMove() {
     let game = Game.init()
     game.start()
     
-    let previousPlayer = game.currentPlayer()
+    let previousPlayer = game.currentPlayer
     
-    let move = Move(2, Point(2, 1))
-    game.makeMove(move)
+    let move = Move(pawnId: 2, newPosition: Point(2, 1))
+    game.makeMove(move: move)
     
-    XCTAssertNotEqual(game.currentPlayer, previousPlayer)
+    XCTAssert(game.currentPlayer !== previousPlayer)
   }
 }
 

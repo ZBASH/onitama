@@ -1,23 +1,30 @@
 final class Game {
   // properties
   var currentPlayerId: Int = 0
-  let board: Board = Board.create()
-  var players = [Player](repeating: Player.init(), count: 2)
+  let board: Board = .create()
+  var players: [Player] = []
   
   // command
   func start() {
-    self.players[0].chooseColor(Color.red)
-    self.players[1].chooseColor(Color.blue)
+    let player1 = Player.create(atRow: 0)
+    player1.chooseColor(.red)
+    players.append(player1)
+
+    let player2 = Player.create(atRow: Config.Board.size - 1)
+    player2.chooseColor(.blue)
+    players.append(player2)
   }
   
   func makeMove(move: Move) {
     // current player makes move
-    let pawn = findCurrentPlayerById(move.pawnId())
-    pawn.moveTo(move.NewPosition())
+    guard let pawn = findCurrentPlayerPawn(byId: move.pawnId) else {
+      return
+    }
+
+    pawn.move(to: move.newPosition)
     
     // capture opponents pawn if possible
-    let otherPawn = findOtherPlayerPawnByPosition(move.newPosition())
-    if(otherPawn != nil) {
+    if let otherPawn = findOtherPlayerPawn(byPosition: move.newPosition) {
       otherPawn.capture()
     }
     
@@ -26,16 +33,36 @@ final class Game {
   }
   
   // queries
-  func findCurrentPlayerPawnById(pawnId: Int) -> Pawn? {
-    let currentPlayer = self.players[currentPlayerId]
-    if(pawnId < 0 || pawnId >= currentPlayer.pawns.count) {
+  var currentPlayer: Player {
+    return players[currentPlayerId]
+  }
+
+  var otherPlayer: Player {
+    return players[1-currentPlayerId]
+  }
+
+  var isFirstPlayerCurrentPlayer: Bool {
+    return currentPlayerId == 0
+  }
+
+  func findCurrentPlayerPawn(byId id: Int) -> Pawn? {
+    if(id < 0 || id >= currentPlayer.pawns.count) {
       return nil
     }
     
-    let pawn = currentPlayer.pawns[pawnId]
-    if(pawn.isCaptured {
+    let pawn = currentPlayer.pawns[id]
+    if(pawn.isCaptured) {
       return nil
     }
+
     return pawn
+  }
+
+  func findCurrentPlayerPawn(byPosition position: Point) -> Pawn? {
+    return currentPlayer.findPawn(byPosition: position)
+  }
+
+  func findOtherPlayerPawn(byPosition position: Point) -> Pawn? {
+    return otherPlayer.findPawn(byPosition: position)
   }
 }

@@ -9,22 +9,22 @@
 /* Begin PBXAggregateTarget section */
 		"Onitama::OnitamaCLI::ProductTarget" /* OnitamaCLI */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_48 /* Build configuration list for PBXAggregateTarget "OnitamaCLI" */;
+			buildConfigurationList = OBJ_58 /* Build configuration list for PBXAggregateTarget "OnitamaCLI" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_51 /* PBXTargetDependency */,
+				OBJ_61 /* PBXTargetDependency */,
 			);
 			name = OnitamaCLI;
 			productName = OnitamaCLI;
 		};
 		"Onitama::OnitamaPackageTests::ProductTarget" /* OnitamaPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_59 /* Build configuration list for PBXAggregateTarget "OnitamaPackageTests" */;
+			buildConfigurationList = OBJ_69 /* Build configuration list for PBXAggregateTarget "OnitamaPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_62 /* PBXTargetDependency */,
+				OBJ_72 /* PBXTargetDependency */,
 			);
 			name = OnitamaPackageTests;
 			productName = OnitamaPackageTests;
@@ -32,45 +32,52 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		10CFBB51223DC4DE00DA56F8 /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Pawn.swift */; };
-		10CFBB54223DCDB100DA56F8 /* PawnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFBB52223DCDAC00DA56F8 /* PawnTests.swift */; };
-		10CFBB57223DD9FB00DA56F8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFBB55223DCF0100DA56F8 /* Player.swift */; };
-		10CFBB59223DDE0700DA56F8 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFBB58223DDE0700DA56F8 /* PlayerTests.swift */; };
-		OBJ_32 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
-		OBJ_34 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
-		OBJ_41 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Color.swift */; };
-		OBJ_42 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Config.swift */; };
-		OBJ_43 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Terminal.swift */; };
-		OBJ_45 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Point.swift */; };
-		OBJ_57 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_68 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* XCTestManifests.swift */; };
-		OBJ_69 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* PointTests.swift */; };
-		OBJ_71 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
+		10C565D12249A8B5007F0047 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D02249A8B5007F0047 /* Move.swift */; };
+		10C565D32249B327007F0047 /* PendingMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D22249B327007F0047 /* PendingMove.swift */; };
+		10C565D52249C3EE007F0047 /* PendingMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D42249C3EE007F0047 /* PendingMoveTests.swift */; };
+		OBJ_39 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
+		OBJ_41 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
+		OBJ_48 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Color.swift */; };
+		OBJ_49 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Config.swift */; };
+		OBJ_50 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Terminal.swift */; };
+		OBJ_51 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Board.swift */; };
+		OBJ_52 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Game.swift */; };
+		OBJ_53 /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Pawn.swift */; };
+		OBJ_54 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Player.swift */; };
+		OBJ_55 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Point.swift */; };
+		OBJ_67 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_78 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* XCTestManifests.swift */; };
+		OBJ_79 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* BoardTests.swift */; };
+		OBJ_80 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* GameTests.swift */; };
+		OBJ_81 /* PawnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* PawnTests.swift */; };
+		OBJ_82 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* PlayerTests.swift */; };
+		OBJ_83 /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* PointTests.swift */; };
+		OBJ_85 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		10CFBB4C223DC4CB00DA56F8 /* PBXContainerItemProxy */ = {
+		10C565CC2249A828007F0047 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Onitama::Onitama";
 			remoteInfo = Onitama;
 		};
-		10CFBB4D223DC4CB00DA56F8 /* PBXContainerItemProxy */ = {
+		10C565CD2249A828007F0047 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Onitama::Onitama";
 			remoteInfo = Onitama;
 		};
-		10CFBB4E223DC4CC00DA56F8 /* PBXContainerItemProxy */ = {
+		10C565CE2249A82A007F0047 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Onitama::CLI";
 			remoteInfo = CLI;
 		};
-		10CFBB4F223DC4CC00DA56F8 /* PBXContainerItemProxy */ = {
+		10C565CF2249A82A007F0047 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -80,16 +87,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10CFBB52223DCDAC00DA56F8 /* PawnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawnTests.swift; sourceTree = "<group>"; };
-		10CFBB55223DCF0100DA56F8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		10CFBB58223DDE0700DA56F8 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
+		10C565D02249A8B5007F0047 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		10C565D22249B327007F0047 /* PendingMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMove.swift; sourceTree = "<group>"; };
+		10C565D42249C3EE007F0047 /* PendingMoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMoveTests.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		OBJ_14 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
-		OBJ_16 /* Pawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pawn.swift; sourceTree = "<group>"; };
-		OBJ_17 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		OBJ_20 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_22 /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		OBJ_17 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		OBJ_18 /* Pawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pawn.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		OBJ_20 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		OBJ_23 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_25 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
+		OBJ_26 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		OBJ_27 /* PawnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawnTests.swift; sourceTree = "<group>"; };
+		OBJ_28 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
+		OBJ_29 /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		"Onitama::CLI::Product" /* CLI */ = {isa = PBXFileReference; lastKnownFileType = text; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,26 +112,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_33 /* Frameworks */ = {
+		OBJ_40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_34 /* Onitama.framework in Frameworks */,
+				OBJ_41 /* Onitama.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_46 /* Frameworks */ = {
+		OBJ_56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_70 /* Frameworks */ = {
+		OBJ_84 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_71 /* Onitama.framework in Frameworks */,
+				OBJ_85 /* Onitama.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,42 +161,49 @@
 		OBJ_15 /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* Pawn.swift */,
-				OBJ_17 /* Point.swift */,
-				10CFBB55223DCF0100DA56F8 /* Player.swift */,
+				OBJ_16 /* Board.swift */,
+				OBJ_17 /* Game.swift */,
+				OBJ_18 /* Pawn.swift */,
+				OBJ_19 /* Player.swift */,
+				OBJ_20 /* Point.swift */,
+				10C565D02249A8B5007F0047 /* Move.swift */,
+				10C565D22249B327007F0047 /* PendingMove.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
 		};
-		OBJ_18 /* Tests */ = {
+		OBJ_21 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_19 /* OnitamaTests */,
+				OBJ_22 /* OnitamaTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_19 /* OnitamaTests */ = {
+		OBJ_22 /* OnitamaTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_20 /* XCTestManifests.swift */,
-				OBJ_21 /* domain */,
+				OBJ_23 /* XCTestManifests.swift */,
+				OBJ_24 /* domain */,
 			);
 			name = OnitamaTests;
 			path = Tests/OnitamaTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_21 /* domain */ = {
+		OBJ_24 /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_22 /* PointTests.swift */,
-				10CFBB52223DCDAC00DA56F8 /* PawnTests.swift */,
-				10CFBB58223DDE0700DA56F8 /* PlayerTests.swift */,
+				OBJ_25 /* BoardTests.swift */,
+				OBJ_26 /* GameTests.swift */,
+				OBJ_27 /* PawnTests.swift */,
+				OBJ_28 /* PlayerTests.swift */,
+				OBJ_29 /* PointTests.swift */,
+				10C565D42249C3EE007F0047 /* PendingMoveTests.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
 		};
-		OBJ_23 /* Products */ = {
+		OBJ_30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"Onitama::OnitamaTests::Product" /* OnitamaTests.xctest */,
@@ -197,8 +218,8 @@
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_18 /* Tests */,
-				OBJ_23 /* Products */,
+				OBJ_21 /* Tests */,
+				OBJ_30 /* Products */,
 			);
 			name = "";
 			sourceTree = "<group>";
@@ -226,15 +247,15 @@
 /* Begin PBXNativeTarget section */
 		"Onitama::CLI" /* CLI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_28 /* Build configuration list for PBXNativeTarget "CLI" */;
+			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "CLI" */;
 			buildPhases = (
-				OBJ_31 /* Sources */,
-				OBJ_33 /* Frameworks */,
+				OBJ_38 /* Sources */,
+				OBJ_40 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_35 /* PBXTargetDependency */,
+				OBJ_42 /* PBXTargetDependency */,
 			);
 			name = CLI;
 			productName = CLI;
@@ -243,10 +264,10 @@
 		};
 		"Onitama::Onitama" /* Onitama */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_37 /* Build configuration list for PBXNativeTarget "Onitama" */;
+			buildConfigurationList = OBJ_44 /* Build configuration list for PBXNativeTarget "Onitama" */;
 			buildPhases = (
-				OBJ_40 /* Sources */,
-				OBJ_46 /* Frameworks */,
+				OBJ_47 /* Sources */,
+				OBJ_56 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,15 +280,15 @@
 		};
 		"Onitama::OnitamaTests" /* OnitamaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_64 /* Build configuration list for PBXNativeTarget "OnitamaTests" */;
+			buildConfigurationList = OBJ_74 /* Build configuration list for PBXNativeTarget "OnitamaTests" */;
 			buildPhases = (
-				OBJ_67 /* Sources */,
-				OBJ_70 /* Frameworks */,
+				OBJ_77 /* Sources */,
+				OBJ_84 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_72 /* PBXTargetDependency */,
+				OBJ_86 /* PBXTargetDependency */,
 			);
 			name = OnitamaTests;
 			productName = OnitamaTests;
@@ -276,9 +297,9 @@
 		};
 		"Onitama::SwiftPMPackageDescription" /* OnitamaPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_53 /* Build configuration list for PBXNativeTarget "OnitamaPackageDescription" */;
+			buildConfigurationList = OBJ_63 /* Build configuration list for PBXNativeTarget "OnitamaPackageDescription" */;
 			buildPhases = (
-				OBJ_56 /* Sources */,
+				OBJ_66 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -304,7 +325,7 @@
 				en,
 			);
 			mainGroup = OBJ_5 /*  */;
-			productRefGroup = OBJ_23 /* Products */;
+			productRefGroup = OBJ_30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -319,93 +340,79 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_31 /* Sources */ = {
+		OBJ_38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_32 /* main.swift in Sources */,
+				OBJ_39 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_40 /* Sources */ = {
+		OBJ_47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_41 /* Color.swift in Sources */,
-				OBJ_42 /* Config.swift in Sources */,
-				OBJ_43 /* Terminal.swift in Sources */,
-				10CFBB51223DC4DE00DA56F8 /* Pawn.swift in Sources */,
-				10CFBB57223DD9FB00DA56F8 /* Player.swift in Sources */,
-				OBJ_45 /* Point.swift in Sources */,
+				10C565D32249B327007F0047 /* PendingMove.swift in Sources */,
+				OBJ_48 /* Color.swift in Sources */,
+				10C565D12249A8B5007F0047 /* Move.swift in Sources */,
+				OBJ_49 /* Config.swift in Sources */,
+				OBJ_50 /* Terminal.swift in Sources */,
+				OBJ_51 /* Board.swift in Sources */,
+				OBJ_52 /* Game.swift in Sources */,
+				OBJ_53 /* Pawn.swift in Sources */,
+				OBJ_54 /* Player.swift in Sources */,
+				OBJ_55 /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_56 /* Sources */ = {
+		OBJ_66 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_57 /* Package.swift in Sources */,
+				OBJ_67 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_67 /* Sources */ = {
+		OBJ_77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				10CFBB59223DDE0700DA56F8 /* PlayerTests.swift in Sources */,
-				10CFBB54223DCDB100DA56F8 /* PawnTests.swift in Sources */,
-				OBJ_68 /* XCTestManifests.swift in Sources */,
-				OBJ_69 /* PointTests.swift in Sources */,
+				OBJ_78 /* XCTestManifests.swift in Sources */,
+				OBJ_79 /* BoardTests.swift in Sources */,
+				OBJ_80 /* GameTests.swift in Sources */,
+				10C565D52249C3EE007F0047 /* PendingMoveTests.swift in Sources */,
+				OBJ_81 /* PawnTests.swift in Sources */,
+				OBJ_82 /* PlayerTests.swift in Sources */,
+				OBJ_83 /* PointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_35 /* PBXTargetDependency */ = {
+		OBJ_42 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Onitama::Onitama" /* Onitama */;
-			targetProxy = 10CFBB4C223DC4CB00DA56F8 /* PBXContainerItemProxy */;
+			targetProxy = 10C565CC2249A828007F0047 /* PBXContainerItemProxy */;
 		};
-		OBJ_51 /* PBXTargetDependency */ = {
+		OBJ_61 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Onitama::CLI" /* CLI */;
-			targetProxy = 10CFBB4E223DC4CC00DA56F8 /* PBXContainerItemProxy */;
-		};
-		OBJ_62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Onitama::OnitamaTests" /* OnitamaTests */;
-			targetProxy = 10CFBB4F223DC4CC00DA56F8 /* PBXContainerItemProxy */;
+			targetProxy = 10C565CE2249A82A007F0047 /* PBXContainerItemProxy */;
 		};
 		OBJ_72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			target = "Onitama::OnitamaTests" /* OnitamaTests */;
+			targetProxy = 10C565CF2249A82A007F0047 /* PBXContainerItemProxy */;
+		};
+		OBJ_86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
 			target = "Onitama::Onitama" /* Onitama */;
-			targetProxy = 10CFBB4D223DC4CB00DA56F8 /* PBXContainerItemProxy */;
+			targetProxy = 10C565CD2249A828007F0047 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_29 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Onitama.xcodeproj/CLI_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
-				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
-				SWIFT_VERSION = 4.2;
-				TARGET_NAME = CLI;
-			};
-			name = Debug;
-		};
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -432,7 +439,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_30 /* Release */ = {
+		OBJ_36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -451,53 +458,26 @@
 				SWIFT_VERSION = 4.2;
 				TARGET_NAME = CLI;
 			};
-			name = Release;
-		};
-		OBJ_38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Onitama.xcodeproj/Onitama_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Onitama;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
-				TARGET_NAME = Onitama;
-			};
 			name = Debug;
 		};
-		OBJ_39 /* Release */ = {
+		OBJ_37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Onitama.xcodeproj/Onitama_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				INFOPLIST_FILE = Onitama.xcodeproj/CLI_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Onitama;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.2;
-				TARGET_NAME = Onitama;
+				TARGET_NAME = CLI;
 			};
 			name = Release;
 		};
@@ -521,19 +501,67 @@
 			};
 			name = Release;
 		};
-		OBJ_49 /* Debug */ = {
+		OBJ_45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Onitama.xcodeproj/Onitama_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Onitama;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = Onitama;
+			};
+			name = Debug;
+		};
+		OBJ_46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Onitama.xcodeproj/Onitama_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Onitama;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = Onitama;
+			};
+			name = Release;
+		};
+		OBJ_59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_50 /* Release */ = {
+		OBJ_60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_54 /* Debug */ = {
+		OBJ_64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -542,7 +570,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_55 /* Release */ = {
+		OBJ_65 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -551,19 +579,19 @@
 			};
 			name = Release;
 		};
-		OBJ_60 /* Debug */ = {
+		OBJ_70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_61 /* Release */ = {
+		OBJ_71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_65 /* Debug */ = {
+		OBJ_75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -584,7 +612,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_66 /* Release */ = {
+		OBJ_76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -617,56 +645,56 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_28 /* Build configuration list for PBXNativeTarget "CLI" */ = {
+		OBJ_35 /* Build configuration list for PBXNativeTarget "CLI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_29 /* Debug */,
-				OBJ_30 /* Release */,
+				OBJ_36 /* Debug */,
+				OBJ_37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_37 /* Build configuration list for PBXNativeTarget "Onitama" */ = {
+		OBJ_44 /* Build configuration list for PBXNativeTarget "Onitama" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_38 /* Debug */,
-				OBJ_39 /* Release */,
+				OBJ_45 /* Debug */,
+				OBJ_46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_48 /* Build configuration list for PBXAggregateTarget "OnitamaCLI" */ = {
+		OBJ_58 /* Build configuration list for PBXAggregateTarget "OnitamaCLI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_49 /* Debug */,
-				OBJ_50 /* Release */,
+				OBJ_59 /* Debug */,
+				OBJ_60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_53 /* Build configuration list for PBXNativeTarget "OnitamaPackageDescription" */ = {
+		OBJ_63 /* Build configuration list for PBXNativeTarget "OnitamaPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_54 /* Debug */,
-				OBJ_55 /* Release */,
+				OBJ_64 /* Debug */,
+				OBJ_65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_59 /* Build configuration list for PBXAggregateTarget "OnitamaPackageTests" */ = {
+		OBJ_69 /* Build configuration list for PBXAggregateTarget "OnitamaPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_60 /* Debug */,
-				OBJ_61 /* Release */,
+				OBJ_70 /* Debug */,
+				OBJ_71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_64 /* Build configuration list for PBXNativeTarget "OnitamaTests" */ = {
+		OBJ_74 /* Build configuration list for PBXNativeTarget "OnitamaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_65 /* Debug */,
-				OBJ_66 /* Release */,
+				OBJ_75 /* Debug */,
+				OBJ_76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

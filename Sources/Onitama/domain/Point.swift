@@ -1,15 +1,14 @@
 struct Point: Equatable {
-  // properties
   let x: Int
   let y: Int
 
-  // lifetime
+  // -- lifetime --
   init(_ x: Int, _ y: Int) {
     self.x = x
     self.y = y
   }
 
-  // operators
+  // -- operators --
   func mirrorX() -> Point {
     return Point(
       x,
@@ -24,7 +23,7 @@ struct Point: Equatable {
     )
   }
 
-  // factories
+  // -- factories --
   static func zero() -> Point {
     return Point(0, 0)
   }

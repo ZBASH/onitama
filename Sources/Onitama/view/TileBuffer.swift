@@ -2,12 +2,12 @@ final class TileBuffer {
   private let mTerminal: Terminal
   private var mBuffer:   [[Tile]]?
 
-  // lifetime
+  // -- lifetime --
   init(terminal: Terminal) {
     mTerminal = terminal
   }
 
-  // commmands
+  // -- commmands --
   func initialize(size: Int) {
     mBuffer = Array.grid(repeating: Tile(), count: size)
   }

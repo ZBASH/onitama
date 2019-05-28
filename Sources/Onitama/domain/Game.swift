@@ -1,10 +1,9 @@
 final class Game {
-  // properties
   var currentPlayerId: Int = 0
   let board: Board = .create()
   var players: [Player] = []
   
-  // command
+  // -- commands --
   func start() {
     let player1 = Player.create(atRow: 0)
     player1.chooseColor(.red)
@@ -32,7 +31,7 @@ final class Game {
     self.currentPlayerId = 1 - currentPlayerId
   }
   
-  // queries
+  // -- queries --
   var currentPlayer: Player {
     return players[currentPlayerId]
   }

@@ -1,19 +1,20 @@
 struct Board: Equatable {
-  // properties
   var grid: [[String]]
   
-  //lifetime
+  // -- lifetime --
   init(grid: [[String]]) {
     self.grid = grid
   }
   
-  // queries
+  // -- queries --
   func containsPoint(point: Point) -> Bool {
-    return point.x >= 0 && point.x < grid.count &&
-           point.y >= 0 && point.y < grid.count
+    return (
+      point.x >= 0 && point.x < grid.count &&
+      point.y >= 0 && point.y < grid.count
+    )
   }
   
-  // factories
+  // -- factories --
   static func create() -> Board {
     return create(size: Config.Board.size)
   }

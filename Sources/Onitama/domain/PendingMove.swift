@@ -1,17 +1,17 @@
 final class PendingMove {
-  // dependencies
-  let game:   Game
+  // -- dependencies --
+  let game: Game
 
-  // properties
+  // -- properties --
   var pawnId: Int?
   var card:   Point?
 
-  // lifetime
+  // -- lifetime --
   init(game: Game) {
     self.game = game
   }
 
-  // commands
+  // -- commands --
   func pickPawn(byId id: Int) {
     self.pawnId = id
   }
@@ -20,7 +20,7 @@ final class PendingMove {
     self.card = card
   }
 
-  // queries
+  // -- queries --
   func getValidMove() -> Result {
     guard let pawnId = pawnId else {
       return .error(.missingPawnId)

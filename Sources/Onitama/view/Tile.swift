@@ -3,16 +3,19 @@ struct Tile {
   private let foreground: Color
   private let background: Color
 
+  // -- lifetime --
   init(glyph: Character = " ", foreground: Color = .none, background: Color = .none) {
     self.glyph      = glyph
     self.foreground = foreground
     self.background = background
   }
 
+  // -- queries --
   func render() -> String {
-    return "\(prefix())\(glyph)\(suffix())"
+    return prefix() + String(glyph) + suffix()
   }
 
+  // -- queries/formatting --
   private func prefix() -> String {
     return prefixBackground() + prefixForeground()
   }

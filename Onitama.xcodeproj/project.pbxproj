@@ -32,6 +32,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1073ACA322963A810042A31D /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073ACA222963A810042A31D /* ArrayExt.swift */; };
+		1073ACAA22963D030042A31D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9A2296217E0042A31D /* GameView.swift */; };
+		1073ACAB22963D030042A31D /* TileBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9C229621E50042A31D /* TileBuffer.swift */; };
+		1073ACAC22963D030042A31D /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9F2296227B0042A31D /* Tile.swift */; };
 		10C565D12249A8B5007F0047 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D02249A8B5007F0047 /* Move.swift */; };
 		10C565D32249B327007F0047 /* PendingMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D22249B327007F0047 /* PendingMove.swift */; };
 		10C565D52249C3EE007F0047 /* PendingMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D42249C3EE007F0047 /* PendingMoveTests.swift */; };
@@ -87,6 +91,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1073AC9A2296217E0042A31D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		1073AC9C229621E50042A31D /* TileBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBuffer.swift; sourceTree = "<group>"; };
+		1073AC9F2296227B0042A31D /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		1073ACA222963A810042A31D /* ArrayExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		10C565D02249A8B5007F0047 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		10C565D22249B327007F0047 /* PendingMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMove.swift; sourceTree = "<group>"; };
 		10C565D42249C3EE007F0047 /* PendingMoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMoveTests.swift; sourceTree = "<group>"; };
@@ -138,9 +146,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1073AC99229621650042A31D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1073AC9A2296217E0042A31D /* GameView.swift */,
+				1073AC9C229621E50042A31D /* TileBuffer.swift */,
+				1073AC9F2296227B0042A31D /* Tile.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1073ACA122963A620042A31D /* collections */ = {
+			isa = PBXGroup;
+			children = (
+				1073ACA222963A810042A31D /* ArrayExt.swift */,
+			);
+			path = collections;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Onitama */ = {
 			isa = PBXGroup;
 			children = (
+				1073AC99229621650042A31D /* view */,
 				OBJ_11 /* core */,
 				OBJ_15 /* domain */,
 			);
@@ -151,6 +178,7 @@
 		OBJ_11 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				1073ACA122963A620042A31D /* collections */,
 				OBJ_12 /* Color.swift */,
 				OBJ_13 /* Config.swift */,
 				OBJ_14 /* Terminal.swift */,
@@ -213,7 +241,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -221,7 +249,6 @@
 				OBJ_21 /* Tests */,
 				OBJ_30 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -322,9 +349,10 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -352,15 +380,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				1073ACAB22963D030042A31D /* TileBuffer.swift in Sources */,
 				10C565D32249B327007F0047 /* PendingMove.swift in Sources */,
 				OBJ_48 /* Color.swift in Sources */,
+				1073ACAC22963D030042A31D /* Tile.swift in Sources */,
 				10C565D12249A8B5007F0047 /* Move.swift in Sources */,
 				OBJ_49 /* Config.swift in Sources */,
+				1073ACA322963A810042A31D /* ArrayExt.swift in Sources */,
 				OBJ_50 /* Terminal.swift in Sources */,
 				OBJ_51 /* Board.swift in Sources */,
 				OBJ_52 /* Game.swift in Sources */,
 				OBJ_53 /* Pawn.swift in Sources */,
 				OBJ_54 /* Player.swift in Sources */,
+				1073ACAA22963D030042A31D /* GameView.swift in Sources */,
 				OBJ_55 /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

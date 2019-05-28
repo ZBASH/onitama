@@ -11,7 +11,6 @@ struct Board: Equatable {
   func containsPoint(point: Point) -> Bool {
     return point.x >= 0 && point.x < grid.count &&
            point.y >= 0 && point.y < grid.count
-    
   }
   
   // factories
@@ -20,8 +19,7 @@ struct Board: Equatable {
   }
   
   static func create(size: Int) -> Board {
-    let grid = [[String]](repeating: [String](repeating: Config.Board.space, count: size), count: size)
-    return Board.init(grid: grid)
+    return Board(grid: Array.grid(repeating: Config.Board.space, count: size))
   }
   
 }

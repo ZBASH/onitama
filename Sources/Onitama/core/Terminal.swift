@@ -2,16 +2,22 @@ import Foundation
 import Darwin.POSIX.termios
 
 public class Terminal {
-  // properties
+  // -- properties --
   private var rawTerm: termios?
   private let input: FileHandle  = .standardInput
   private let output: FileHandle = .standardOutput
   
-  // lifetime
+  // -- lifetime --
   public init() {
   }
+
+  // -- io --
+  // -- io/commands
+  public func write(_ text: String) {
+    print(text, terminator: "")
+  }
   
-  // raw
+  // -- raw --
   public var isRaw: Bool {
     get {
       return rawTerm != nil
@@ -27,7 +33,7 @@ public class Terminal {
     }
   }
   
-  // raw/queries
+  // -- raw/queries
   public func read() -> UInt8? {
     var char: UInt8 = 0
     
@@ -38,7 +44,7 @@ public class Terminal {
     }
   }
   
-  // raw/commands
+  // -- raw/commands
   private func enableRawInput() {
     let pointer = UnsafeMutablePointer<termios>.allocate(capacity: 1)
     var termios = pointer.pointee

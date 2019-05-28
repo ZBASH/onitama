@@ -8,7 +8,7 @@ final class Pawn {
     self.position = position
   }
 
-  // commands
+  // -- commands --
   func move(to position: Point) {
     self.position = position
   }

@@ -12,8 +12,16 @@ final class TileBuffer {
     mBuffer = Array.grid(repeating: Tile(), count: size)
   }
 
-  func set(x: Int, y: Int, tile: Tile) {
-    mBuffer?[x][y] = tile
+  func set(_ point: Point, tile: Tile) {
+    guard let buffer = mBuffer else {
+      fatalError("buffer was not initialized")
+    }
+
+    if point.x >= buffer.count || point.y >= buffer.count {
+      fatalError("buffer does not contain \(point)")
+    }
+
+    mBuffer?[point.y][point.x] = tile
   }
 
   func draw() {
@@ -29,14 +37,5 @@ final class TileBuffer {
     }
 
     mBuffer = nil
-  }
-
-  // -- queries --
-  func contains(x: Int, y: Int) -> Bool {
-    guard let buffer = mBuffer else {
-      fatalError("buffer was not initialized")
-    }
-
-    return y < buffer.count && x < buffer.count
   }
 }

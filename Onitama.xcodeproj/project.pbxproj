@@ -32,6 +32,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		106C3E8122AC15D9006C3856 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8022AC15D9006C3856 /* BoardView.swift */; };
+		106C3E8322AC1906006C3856 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8222AC1906006C3856 /* PlayerView.swift */; };
+		106C3E8522AC208C006C3856 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8422AC208C006C3856 /* RootView.swift */; };
+		106C3E8722AC230B006C3856 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8622AC230B006C3856 /* Flash.swift */; };
+		106C3E8922AC2782006C3856 /* PIckPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PIckPawnInput.swift */; };
+		106C3E8B22AC2B16006C3856 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8A22AC2B16006C3856 /* App.swift */; };
 		1073ACA322963A810042A31D /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073ACA222963A810042A31D /* ArrayExt.swift */; };
 		1073ACAA22963D030042A31D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9A2296217E0042A31D /* GameView.swift */; };
 		1073ACAB22963D030042A31D /* TileBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9C229621E50042A31D /* TileBuffer.swift */; };
@@ -91,6 +97,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		106C3E8022AC15D9006C3856 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		106C3E8222AC1906006C3856 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		106C3E8422AC208C006C3856 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		106C3E8622AC230B006C3856 /* Flash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flash.swift; sourceTree = "<group>"; };
+		106C3E8822AC2782006C3856 /* PIckPawnInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIckPawnInput.swift; sourceTree = "<group>"; };
+		106C3E8A22AC2B16006C3856 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		1073AC9A2296217E0042A31D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		1073AC9C229621E50042A31D /* TileBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBuffer.swift; sourceTree = "<group>"; };
 		1073AC9F2296227B0042A31D /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
@@ -152,6 +164,11 @@
 				1073AC9A2296217E0042A31D /* GameView.swift */,
 				1073AC9C229621E50042A31D /* TileBuffer.swift */,
 				1073AC9F2296227B0042A31D /* Tile.swift */,
+				106C3E8022AC15D9006C3856 /* BoardView.swift */,
+				106C3E8222AC1906006C3856 /* PlayerView.swift */,
+				106C3E8422AC208C006C3856 /* RootView.swift */,
+				106C3E8622AC230B006C3856 /* Flash.swift */,
+				106C3E8822AC2782006C3856 /* PIckPawnInput.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -167,6 +184,7 @@
 		OBJ_10 /* Onitama */ = {
 			isa = PBXGroup;
 			children = (
+				106C3E8A22AC2B16006C3856 /* App.swift */,
 				1073AC99229621650042A31D /* view */,
 				OBJ_11 /* core */,
 				OBJ_15 /* domain */,
@@ -383,15 +401,21 @@
 				1073ACAB22963D030042A31D /* TileBuffer.swift in Sources */,
 				10C565D32249B327007F0047 /* PendingMove.swift in Sources */,
 				OBJ_48 /* Color.swift in Sources */,
+				106C3E8522AC208C006C3856 /* RootView.swift in Sources */,
+				106C3E8322AC1906006C3856 /* PlayerView.swift in Sources */,
 				1073ACAC22963D030042A31D /* Tile.swift in Sources */,
 				10C565D12249A8B5007F0047 /* Move.swift in Sources */,
 				OBJ_49 /* Config.swift in Sources */,
 				1073ACA322963A810042A31D /* ArrayExt.swift in Sources */,
 				OBJ_50 /* Terminal.swift in Sources */,
 				OBJ_51 /* Board.swift in Sources */,
+				106C3E8922AC2782006C3856 /* PIckPawnInput.swift in Sources */,
 				OBJ_52 /* Game.swift in Sources */,
+				106C3E8B22AC2B16006C3856 /* App.swift in Sources */,
 				OBJ_53 /* Pawn.swift in Sources */,
 				OBJ_54 /* Player.swift in Sources */,
+				106C3E8722AC230B006C3856 /* Flash.swift in Sources */,
+				106C3E8122AC15D9006C3856 /* BoardView.swift in Sources */,
 				1073ACAA22963D030042A31D /* GameView.swift in Sources */,
 				OBJ_55 /* Point.swift in Sources */,
 			);

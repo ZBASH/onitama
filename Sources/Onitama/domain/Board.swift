@@ -1,8 +1,8 @@
 struct Board: Equatable {
-  var grid: [[String]]
+  var grid: [[Character]]
   
   // -- lifetime --
-  init(grid: [[String]]) {
+  init(grid: [[Character]]) {
     self.grid = grid
   }
   

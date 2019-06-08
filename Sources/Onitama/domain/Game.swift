@@ -2,7 +2,7 @@ final class Game {
   var currentPlayerId: Int = 0
   let board: Board = .create()
   var players: [Player] = []
-  
+
   // -- commands --
   func start() {
     let player1 = Player.create(atRow: 0)
@@ -13,7 +13,7 @@ final class Game {
     player2.chooseColor(.blue)
     players.append(player2)
   }
-  
+
   func makeMove(move: Move) {
     // current player makes move
     guard let pawn = findCurrentPlayerPawn(byId: move.pawnId) else {
@@ -21,16 +21,16 @@ final class Game {
     }
 
     pawn.move(to: move.newPosition)
-    
+
     // capture opponents pawn if possible
     if let otherPawn = findOtherPlayerPawn(byPosition: move.newPosition) {
       otherPawn.capture()
     }
-    
+
     // swap current player
     self.currentPlayerId = 1 - currentPlayerId
   }
-  
+
   // -- queries --
   var currentPlayer: Player {
     return players[currentPlayerId]
@@ -45,12 +45,12 @@ final class Game {
   }
 
   func findCurrentPlayerPawn(byId id: Int) -> Pawn? {
-    if(id < 0 || id >= currentPlayer.pawns.count) {
+    if id < 0 || id >= currentPlayer.pawns.count {
       return nil
     }
-    
+
     let pawn = currentPlayer.pawns[id]
-    if(pawn.isCaptured) {
+    if pawn.isCaptured {
       return nil
     }
 

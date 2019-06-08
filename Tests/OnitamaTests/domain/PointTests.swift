@@ -1,6 +1,6 @@
 import XCTest
-@testable 
-import Onitama
+
+@testable import Onitama
 
 final class PointTests: XCTestCase {
   func testItCreatesAZeroPoint() {
@@ -10,7 +10,7 @@ final class PointTests: XCTestCase {
   }
 
   func testItAddsPoints() {
-    let left  = Point(1, 4)
+    let left = Point(1, 4)
     let right = Point(2, 3)
 
     let actual = left + right

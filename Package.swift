@@ -9,15 +9,15 @@ let package = Package(
     .executable(
       name: "OnitamaCLI",
       targets: [
-        "CLI"
+        "CLI",
       ]
     ),
     .library(
       name: "Onitama",
       targets: [
-        "Onitama"
+        "Onitama",
       ]
-    )
+    ),
   ],
   dependencies: [
   ],
@@ -25,7 +25,7 @@ let package = Package(
     .target(
       name: "CLI",
       dependencies: [
-        "Onitama"
+        "Onitama",
       ]
     ),
     .target(
@@ -36,7 +36,7 @@ let package = Package(
     .testTarget(
       name: "OnitamaTests",
       dependencies: [
-        "Onitama"
+        "Onitama",
       ]
     ),
   ]

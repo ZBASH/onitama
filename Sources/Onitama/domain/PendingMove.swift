@@ -4,7 +4,7 @@ final class PendingMove {
 
   // -- properties --
   var pawnId: Int?
-  var card:   Point?
+  var card: Point?
 
   // -- lifetime --
   init(game: Game) {
@@ -35,16 +35,16 @@ final class PendingMove {
     }
 
     var delta = card
-    if(!game.isFirstPlayerCurrentPlayer) {
+    if !game.isFirstPlayerCurrentPlayer {
       delta = delta.mirrorX()
     }
 
     let newPosition = pawn.position + delta
-    if(!game.board.containsPoint(point: newPosition)) {
+    if !game.board.containsPoint(point: newPosition) {
       return .error(.positionOutOfBounds(position: newPosition))
     }
 
-    if(game.findCurrentPlayerPawn(byPosition: newPosition) != nil) {
+    if game.findCurrentPlayerPawn(byPosition: newPosition) != nil {
       return .error(.positionWasOccupied(poistion: newPosition))
     }
 
@@ -57,10 +57,10 @@ final class PendingMove {
 
     var move: Move? {
       switch self {
-        case .error(_):
-          return nil
-        case .move(let move):
-          return move
+      case .error(_):
+        return nil
+      case .move(let move):
+        return move
       }
     }
 

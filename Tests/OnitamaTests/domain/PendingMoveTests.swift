@@ -1,6 +1,6 @@
 import XCTest
-@testable
-import Onitama
+
+@testable import Onitama
 
 final class PendingMoveTests: XCTestCase {
   func testItCreatesValidMovesForTheFirstPlayer() {
@@ -71,7 +71,7 @@ final class PendingMoveTests: XCTestCase {
     pendingMove.pickCard(card: Point(1, 0))
     let actual = pendingMove.getValidMove()
 
-    guard case .error(.positionWasOccupied(poistion: Point(1,0))) = actual else {
+    guard case .error(.positionWasOccupied(poistion: Point(1, 0))) = actual else {
       XCTFail("Did not produce .error(.positionOutOfBounds(position: Point(3, 0)))")
       return
     }

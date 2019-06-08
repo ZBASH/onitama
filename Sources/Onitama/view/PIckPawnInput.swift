@@ -1,15 +1,15 @@
 final class PickPawnInput {
-  private let mTerminal:          Terminal
+  private let mTerminal: Terminal
   private var mSelectedPawnIndex: Int
-  private var mIsConfirmed:       Bool = false
+  private var mIsConfirmed: Bool = false
 
-  // lifetime
+  // -- lifetime --
   init(terminal: Terminal) {
-    mTerminal          = terminal
+    mTerminal = terminal
     mSelectedPawnIndex = 0
   }
 
-  // command
+  // -- commands --
   func call() {
     mTerminal.write("\nselect a pawn [< > enter]")
 
@@ -25,7 +25,7 @@ final class PickPawnInput {
     mTerminal.write("\n")
   }
 
-  // queries
+  // -- queries --
   var selectedPawnIndex: Int? {
     if mIsConfirmed {
       return mSelectedPawnIndex

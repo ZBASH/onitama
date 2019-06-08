@@ -1,10 +1,9 @@
 final class Player {
-  // properties
   var color: Color = .none
   var pawns: [Pawn] = []
   var pawnToMove: Pawn?
 
-  // commands
+  // -- commands --
   func chooseColor(_ color: Color) {
     self.color = color
   }
@@ -14,14 +13,14 @@ final class Player {
     self.pawnToMove?.move(to: position)
   }
 
-  // queries
+  // -- queries --
   func findPawn(byPosition position: Point) -> Pawn? {
     return pawns.first { pawn in
       pawn.position == position
     }
   }
 
-  // factories
+  // -- factories --
   static func create(atRow row: Int, size: Int = Config.Board.size) -> Player {
     let player = Player()
 

@@ -33,10 +33,10 @@ public final class App {
       pendingMove!.pickCard(card: Point(0, 1))
 
       switch pendingMove!.getValidMove() {
-        case .move(let move):
-          mGame.makeMove(move: move)
-        case .error(let error):
-          mView.render(error: error)
+      case .move(let move):
+        mGame.makeMove(move: move)
+      case .error(let error):
+        mView.render(error: error)
       }
     }
   }

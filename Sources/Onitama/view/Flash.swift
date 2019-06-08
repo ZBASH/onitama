@@ -1,13 +1,13 @@
-final class Flash{
-  private var mText:     String?
+final class Flash {
+  private var mText: String?
   private let mTerminal: Terminal
 
-  // lifetime
+  // -- lifetime --
   init(terminal: Terminal) {
     mTerminal = terminal
   }
 
-  // commands
+  // -- commands --
   func render(error: PendingMove.Error) {
     switch error {
     case .positionWasOccupied(let position):
@@ -27,7 +27,7 @@ final class Flash{
     if let text = mText {
       mTerminal.write("\n\(text)")
     }
-    
+
     mText = nil
   }
 }

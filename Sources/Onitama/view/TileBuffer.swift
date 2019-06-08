@@ -1,6 +1,6 @@
 final class TileBuffer {
   private let mTerminal: Terminal
-  private var mBuffer:   [[Tile]]?
+  private var mBuffer: [[Tile]]?
 
   // -- lifetime --
   init(terminal: Terminal) {

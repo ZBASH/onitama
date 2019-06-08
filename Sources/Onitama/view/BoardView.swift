@@ -1,12 +1,12 @@
 final class BoardView {
   private let mBuffer: TileBuffer
 
-  // lifetime
+  // -- lifetime --
   init(buffer: TileBuffer) {
     mBuffer = buffer
   }
 
-  // command
+  // -- command --
   func render(board: Board) {
     let grid = board.grid
 

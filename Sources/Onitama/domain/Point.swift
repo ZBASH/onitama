@@ -16,7 +16,7 @@ struct Point: Equatable {
     )
   }
 
-  static func +(left: Point, right: Point) -> Point {
+  static func + (left: Point, right: Point) -> Point {
     return Point(
       left.x + right.x,
       left.y + right.y

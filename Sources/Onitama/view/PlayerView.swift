@@ -1,12 +1,12 @@
 final class PlayerView {
   private let mBuffer: TileBuffer
 
-  // lifeitme
+  // -- lifeitme --
   init(buffer: TileBuffer) {
     mBuffer = buffer
   }
 
-  // command
+  // -- commands --
   func render(player: Player, isCurrentPlayer: Bool, selectedPawnIndex: Int?) {
     for (i, pawn) in player.pawns.enumerated() {
       if !pawn.isCaptured {

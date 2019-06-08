@@ -1,6 +1,6 @@
 import XCTest
-@testable
-import Onitama
+
+@testable import Onitama
 
 final class PawnTests: XCTestCase {
   func testItMovesToANewPosition() {

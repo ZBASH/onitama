@@ -1,6 +1,6 @@
 enum Color {
   case
-  none,
-  red,
-  blue
+    none,
+    red,
+    blue
 }

@@ -1,18 +1,18 @@
 include ./Makefile.base.mk
 
 # -- cosmetics --
-help-column-width = 8
+help-column-width = 12
 
 # -- context --
 tools-swift    = swift
-tools-swiftfmt = swift-format
+tools-swiftfmt = swift-format --configuration .swift-format.json --recursive ./
 
 # -- init --
 ## initializes dev environment
 init: init/pre init/base
 .PHONY: init
 
-# -- init/helpers 
+# -- init/helpers
 init/base:
 	brew bundle -v
 .PHONY: init/base
@@ -39,16 +39,20 @@ build:
 
 # -- verify --
 ## runs all verification steps
-verify: v/test
+verify: v/format v/test
 .PHONY: verify
 
-## runs the code formatter
+## checks the code formatting
 v/format:
-	$(tools-swiftfmt)
+	$(tools-swiftfmt) --mode lint
+.PHONY: v/format
+
+## auto-fixes the code formatting
+v/format/fix:
+	$(tools-swiftfmt) --in-place
 .PHONY: v/format
 
 ## runs the tests
 v/test:
 	$(tools-swift) test
 .PHONY: v/test
-

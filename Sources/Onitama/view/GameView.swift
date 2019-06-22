@@ -11,7 +11,7 @@ final class GameView {
   }
 
   // -- commands --
-  func render(game: Game, selectedPawnIndex: Int?) {
+  func render(game: Game, selectedPawnIndex: Int) {
     mBoardView.render(board: game.board)
 
     mPlayerView.render(

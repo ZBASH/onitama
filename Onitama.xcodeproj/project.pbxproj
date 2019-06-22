@@ -36,7 +36,7 @@
 		106C3E8322AC1906006C3856 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8222AC1906006C3856 /* PlayerView.swift */; };
 		106C3E8522AC208C006C3856 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8422AC208C006C3856 /* RootView.swift */; };
 		106C3E8722AC230B006C3856 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8622AC230B006C3856 /* Flash.swift */; };
-		106C3E8922AC2782006C3856 /* PIckPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PIckPawnInput.swift */; };
+		106C3E8922AC2782006C3856 /* PickPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PickPawnInput.swift */; };
 		106C3E8B22AC2B16006C3856 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8A22AC2B16006C3856 /* App.swift */; };
 		1073ACA322963A810042A31D /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073ACA222963A810042A31D /* ArrayExt.swift */; };
 		1073ACAA22963D030042A31D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9A2296217E0042A31D /* GameView.swift */; };
@@ -101,7 +101,7 @@
 		106C3E8222AC1906006C3856 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		106C3E8422AC208C006C3856 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		106C3E8622AC230B006C3856 /* Flash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flash.swift; sourceTree = "<group>"; };
-		106C3E8822AC2782006C3856 /* PIckPawnInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIckPawnInput.swift; sourceTree = "<group>"; };
+		106C3E8822AC2782006C3856 /* PickPawnInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPawnInput.swift; sourceTree = "<group>"; };
 		106C3E8A22AC2B16006C3856 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		1073AC9A2296217E0042A31D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		1073AC9C229621E50042A31D /* TileBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileBuffer.swift; sourceTree = "<group>"; };
@@ -126,9 +126,9 @@
 		OBJ_29 /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		"Onitama::CLI::Product" /* CLI */ = {isa = PBXFileReference; lastKnownFileType = text; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Onitama::Onitama::Product" /* Onitama.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Onitama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Onitama::OnitamaTests::Product" /* OnitamaTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = OnitamaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Onitama::CLI::Product" /* CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Onitama::Onitama::Product" /* Onitama.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Onitama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Onitama::OnitamaTests::Product" /* OnitamaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = OnitamaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +168,7 @@
 				106C3E8222AC1906006C3856 /* PlayerView.swift */,
 				106C3E8422AC208C006C3856 /* RootView.swift */,
 				106C3E8622AC230B006C3856 /* Flash.swift */,
-				106C3E8822AC2782006C3856 /* PIckPawnInput.swift */,
+				106C3E8822AC2782006C3856 /* PickPawnInput.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -361,6 +361,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"Onitama::CLI" = {
+						LastSwiftMigration = 1020;
+					};
+					"Onitama::Onitama" = {
+						LastSwiftMigration = 1020;
+					};
+					"Onitama::OnitamaTests" = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Onitama" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -409,7 +420,7 @@
 				1073ACA322963A810042A31D /* ArrayExt.swift in Sources */,
 				OBJ_50 /* Terminal.swift in Sources */,
 				OBJ_51 /* Board.swift in Sources */,
-				106C3E8922AC2782006C3856 /* PIckPawnInput.swift in Sources */,
+				106C3E8922AC2782006C3856 /* PickPawnInput.swift in Sources */,
 				OBJ_52 /* Game.swift in Sources */,
 				106C3E8B22AC2B16006C3856 /* App.swift in Sources */,
 				OBJ_53 /* Pawn.swift in Sources */,
@@ -511,7 +522,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = CLI;
 			};
 			name = Debug;
@@ -532,7 +543,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
 				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = CLI;
 			};
 			name = Release;
@@ -576,7 +587,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = Onitama;
 			};
 			name = Debug;
@@ -600,7 +611,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = Onitama;
 			};
 			name = Release;
@@ -663,7 +674,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = OnitamaTests;
 			};
 			name = Debug;
@@ -684,7 +695,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = OnitamaTests;
 			};
 			name = Release;

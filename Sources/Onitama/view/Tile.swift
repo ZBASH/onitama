@@ -23,9 +23,9 @@ struct Tile {
   private func prefixForeground() -> String {
     switch foreground {
     case .red:
-      return "\033[0;31m"
+      return "\u{001B}[0;31m"
     case .blue:
-      return "\033[0;34m"
+      return "\u{001B}[0;34m"
     default:
       return ""
     }
@@ -34,9 +34,9 @@ struct Tile {
   private func prefixBackground() -> String {
     switch background {
     case .red:
-      return "\033[41;1m"
+      return "\u{001b}[41;1m"
     case .blue:
-      return "\033[44;1m"
+      return "\u{001b}[44;1m"
     default:
       return ""
     }
@@ -47,6 +47,6 @@ struct Tile {
       return ""
     }
 
-    return "\033[0m"
+    return "\u{001b}[0m"
   }
 }

@@ -7,7 +7,7 @@ final class PlayerView {
   }
 
   // -- commands --
-  func render(player: Player, isCurrentPlayer: Bool, selectedPawnIndex: Int?) {
+  func render(player: Player, isCurrentPlayer: Bool, selectedPawnIndex: Int) {
     for (i, pawn) in player.pawns.enumerated() {
       if !pawn.isCaptured {
         let isHighlighted = isCurrentPlayer && i == selectedPawnIndex

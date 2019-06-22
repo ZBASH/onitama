@@ -2,6 +2,14 @@ import Darwin.POSIX.termios
 import Foundation
 
 public class Terminal {
+  struct Code {
+    static let meta1: UInt8 = 27
+    static let meta2: UInt8 = 91
+    static let left: UInt8 = 68
+    static let right: UInt8 = 67
+    static let enter: UInt8 = 10
+  }
+
   // -- properties --
   private var rawTerm: termios?
   private let input: FileHandle = .standardInput
@@ -15,6 +23,10 @@ public class Terminal {
   // -- io/commands
   public func write(_ text: String) {
     print(text, terminator: "")
+  }
+
+  public func writeln(_ text: String = "") {
+    print(text)
   }
 
   // -- raw --
@@ -34,14 +46,29 @@ public class Terminal {
   }
 
   // -- raw/queries
-  public func read() -> UInt8? {
-    var char: UInt8 = 0
-
-    if Darwin.read(input.fileDescriptor, &char, 1) == 1 {
-      return char
-    } else {
-      return nil
+  public func read() -> [UInt8] {
+    isRaw = true
+    defer {
+      isRaw = false
     }
+
+    var buffer: [UInt8] = []
+
+    var char: UInt8 = 0
+    while Darwin.read(input.fileDescriptor, &char, 1) == 1 {
+      buffer.append(char)
+      print(char)
+
+      // arrow keys are a sequence of three characters, 239 && 156 are
+      // the first two control characters in that sequence.
+      if char != Code.meta1 && char != Code.meta2 {
+        break
+      }
+    }
+
+    print(buffer)
+
+    return buffer
   }
 
   // -- raw/commands

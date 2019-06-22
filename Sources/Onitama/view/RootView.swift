@@ -17,7 +17,7 @@ final class RootView {
   // -- commands --
   func pickPawnId() -> Int? {
     mPickPawnInput.call()
-    return mPickPawnInput.selectedPawnIndex
+    return mPickPawnInput.confirmedPawnIndex
   }
 
   // -- commands/render
@@ -31,7 +31,7 @@ final class RootView {
 
   // -- commands/draw
   func clear() {
-    mTerminal.write("\033[H\033[2J")
+    mTerminal.write("\u{001B}[H\u{001B}[2J")
   }
 
   func draw() {

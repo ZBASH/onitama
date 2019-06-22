@@ -5,8 +5,6 @@ public final class App {
   // lifetime
   public init() {
     let terminal = Terminal()
-    terminal.isRaw = true
-
     mGame = Game()
     mView = RootView(terminal: terminal)
   }

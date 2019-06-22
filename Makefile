@@ -27,15 +27,29 @@ endif
 
 # -- run --
 ## runs the cli
-run: build
+run:
 	$(tools-swift) run
 .PHONY: run
+
+## cleans and runs the cli
+r/clean: b/clean run
+.PHONY: r/clean
+
+## runs the cli in the debugger
+r/debug: build
+	lldb ./.build/debug/OnitamaCLI	
+.PHONY: r/debug
 
 # -- build --
 ## builds the cli
 build:
 	$(tools-swift) build
 .PHONY: build
+
+## cleans the cli
+b/clean:
+	$(tools-swift) package clean
+.PHONY: clean
 
 # -- verify --
 ## runs all verification steps

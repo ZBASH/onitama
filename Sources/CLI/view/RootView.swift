@@ -5,7 +5,8 @@ final class RootView {
   private let mBuffer: TileBuffer
   private let mGameView: GameView
   private let mFlash: Flash
-  private let mPickPawnInput: PickPawnInput
+  private var mPickPawnInput: PickPawnInput
+  private let mMenuInput: MenuInput
 
   // -- lifetime --
   init(terminal: Terminal) {
@@ -14,12 +15,23 @@ final class RootView {
     mGameView = GameView(buffer: mBuffer)
     mFlash = Flash(terminal: terminal)
     mPickPawnInput = PickPawnInput(terminal: terminal)
+    mMenuInput = MenuInput(terminal: terminal)
   }
 
   // -- commands --
+  // -- commands/input
   func pickPawnId() -> Int? {
-    mPickPawnInput.call()
+    mPickPawnInput.render()
+    
+    let input = mTerminal.read()
+    mMenuInput.handleInput(input)
+    mPickPawnInput.handleInput(input)
+    
     return mPickPawnInput.confirmedPawnIndex
+  }
+  
+  func resetInput() {
+    mPickPawnInput = PickPawnInput(terminal: mTerminal)
   }
 
   // -- commands/render

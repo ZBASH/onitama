@@ -8,6 +8,7 @@ class Terminal {
     static let left: UInt8 = 68
     static let right: UInt8 = 67
     static let enter: UInt8 = 10
+    static let q: UInt8 = 113
   }
 
   // -- properties --
@@ -28,6 +29,10 @@ class Terminal {
 
   func writeln(_ text: String = "") {
     print(text)
+  }
+  
+  func exit() {
+    Darwin.exit(0)
   }
 
   // -- raw --
@@ -58,7 +63,6 @@ class Terminal {
     var char: UInt8 = 0
     while Darwin.read(input.fileDescriptor, &char, 1) == 1 {
       buffer.append(char)
-      print(char)
 
       // arrow keys are a sequence of three characters, 239 && 156 are
       // the first two control characters in that sequence.
@@ -66,8 +70,6 @@ class Terminal {
         break
       }
     }
-
-    print(buffer)
 
     return buffer
   }

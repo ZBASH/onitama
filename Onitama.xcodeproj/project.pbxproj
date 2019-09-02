@@ -46,6 +46,7 @@
 		CD356D9E231C804500FA4327 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8622AC230B006C3856 /* Flash.swift */; };
 		CD356D9F231C804500FA4327 /* PickPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PickPawnInput.swift */; };
 		CD356DA0231C804500FA4327 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Terminal.swift */; };
+		CDBF2B6C231CC56800A9F67E /* MenuInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B6B231CC56800A9F67E /* MenuInput.swift */; };
 		OBJ_39 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_41 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
 		OBJ_48 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Color.swift */; };
@@ -110,6 +111,7 @@
 		10C565D02249A8B5007F0047 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		10C565D22249B327007F0047 /* PendingMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMove.swift; sourceTree = "<group>"; };
 		10C565D42249C3EE007F0047 /* PendingMoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMoveTests.swift; sourceTree = "<group>"; };
+		CDBF2B6B231CC56800A9F67E /* MenuInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInput.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		OBJ_14 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				106C3E8222AC1906006C3856 /* PlayerView.swift */,
 				106C3E8422AC208C006C3856 /* RootView.swift */,
 				106C3E8622AC230B006C3856 /* Flash.swift */,
+				CDBF2B6B231CC56800A9F67E /* MenuInput.swift */,
 				106C3E8822AC2782006C3856 /* PickPawnInput.swift */,
 			);
 			path = view;
@@ -420,6 +423,7 @@
 				CD356D95231C7F6700FA4327 /* App.swift in Sources */,
 				CD356D99231C804500FA4327 /* TileBuffer.swift in Sources */,
 				CD356DA0231C804500FA4327 /* Terminal.swift in Sources */,
+				CDBF2B6C231CC56800A9F67E /* MenuInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

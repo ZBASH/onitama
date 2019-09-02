@@ -12,10 +12,12 @@ final class PickPawnInput {
   }
 
   // -- commands --
-  func call() {
+  func render() {
     mTerminal.writeln("\nselect a pawn [< > enter]")
-
-    switch mTerminal.read() {
+  }
+  
+  func handleInput(_ input: [UInt8]) {
+    switch input {
     case [Terminal.Code.meta1, Terminal.Code.meta2, Terminal.Code.left]:
       if mSelectedPawnIndex > 0 {
         mSelectedPawnIndex -= 1

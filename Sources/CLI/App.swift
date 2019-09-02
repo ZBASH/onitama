@@ -20,7 +20,7 @@ final class App {
       mView.clear()
       mView.render(game: mGame)
       mView.draw()
-
+      
       guard let pawnId = mView.pickPawnId() else {
         continue
       }
@@ -32,6 +32,7 @@ final class App {
       case .move(let move):
         mGame.makeMove(move: move)
         pendingMove = PendingMove(game: mGame)
+        mView.resetInput()
       case .error(let error):
         mView.render(error: error)
       }

@@ -1,25 +1,33 @@
 /// `Game` is an entity representing a session of play.
 public final class Game {
+  // -- dependencies --
+  private let mPawns: PawnRepo
+  
   // -- properties --
-  /// `board` is the field on which the game takes place.
-  public let board: Board = .create()
+  /// `mBoard` is the field on which the game takes place.
+  public let mBoard: Board = .create()
 
   var currentPlayerId: Int = 0
   var players: [Player] = []
 
   // -- lifetime --
   /// `init` constructs a new game.
-  public init() {
+  public convenience init() {
+    self.init(pawns: PawnRepo())
+  }
+  
+  init(pawns: PawnRepo) {
+    mPawns = pawns
   }
 
   // -- commands --
   /// `start` begins the game, setting up its initial state.
   public func start() {
-    let player1 = Player.create(atRow: 0)
+    let player1 = Player(pawns: mPawns)
     player1.chooseColor(.red)
     players.append(player1)
 
-    let player2 = Player.create(atRow: Config.Board.size - 1)
+    let player2 = Player(pawns: mPawns)
     player2.chooseColor(.blue)
     players.append(player2)
   }
@@ -27,7 +35,7 @@ public final class Game {
   /// `makeMove` resolves a pre-validated move.
   public func makeMove(move: Move) {
     // current player makes move
-    guard let pawn = findCurrentPlayerPawn(byId: move.pawnId) else {
+    guard let pawn = mPawns.findPawn(byId: move.pawnId) else {
       return
     }
 
@@ -57,17 +65,8 @@ public final class Game {
     return currentPlayerId == 0
   }
 
-  func findCurrentPlayerPawn(byId id: Int) -> Pawn? {
-    if id < 0 || id >= currentPlayer.pawns.count {
-      return nil
-    }
-
-    let pawn = currentPlayer.pawns[id]
-    if pawn.isCaptured {
-      return nil
-    }
-
-    return pawn
+  func findCurrentPlayerPawn(byIndex index: Int) -> Pawn? {
+    return currentPlayer.findPawn(byIndex: index)
   }
 
   func findCurrentPlayerPawn(byPosition position: Point) -> Pawn? {

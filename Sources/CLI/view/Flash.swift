@@ -16,12 +16,10 @@ final class Flash {
       mText = "The position \(position) is occupied."
     case .positionOutOfBounds(let position):
       mText = "The position \(position) is out of bounds."
-    case .invalidPawnId(let id):
+    case .invalidPawnIndex(let id):
       mText = "There is no pawn with id \(id)."
     case .missingCard:
       mText = "The card is missing."
-    case .missingPawnId:
-      mText = "The pawn id is missing."
     }
   }
 

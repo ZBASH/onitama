@@ -2,7 +2,7 @@ import XCTest
 
 @testable import Onitama
 
-final class GameTests: XCTestCase {
+final class GameTests: TestCase {
   func testItHasAFirstPlayer() {
     let game = Game.init()
     game.start()
@@ -26,7 +26,7 @@ final class GameTests: XCTestCase {
   func testItMakesAMove() {
     let game = Game.init()
     game.start()
-    let pawn = game.findCurrentPlayerPawn(byId: 2)
+    let pawn = game.findCurrentPlayerPawn(byIndex: 2)
 
     let move = Move(pawnId: 2, newPosition: Point(2, 1))
     game.makeMove(move: move)

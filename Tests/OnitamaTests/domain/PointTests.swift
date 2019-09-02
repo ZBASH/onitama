@@ -2,7 +2,7 @@ import XCTest
 
 @testable import Onitama
 
-final class PointTests: XCTestCase {
+final class PointTests: TestCase {
   func testItCreatesAZeroPoint() {
     let actual = Point.zero()
     XCTAssertEqual(actual.x, 0)

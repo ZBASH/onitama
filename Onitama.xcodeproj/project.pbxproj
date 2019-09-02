@@ -47,6 +47,9 @@
 		CD356D9F231C804500FA4327 /* PickPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PickPawnInput.swift */; };
 		CD356DA0231C804500FA4327 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Terminal.swift */; };
 		CDBF2B6C231CC56800A9F67E /* MenuInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B6B231CC56800A9F67E /* MenuInput.swift */; };
+		CDBF2B6E231D664C00A9F67E /* PawnRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B6D231D664C00A9F67E /* PawnRepo.swift */; };
+		CDBF2B70231D696100A9F67E /* PawnRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B6F231D696100A9F67E /* PawnRepoTests.swift */; };
+		CDBF2B73231D6C1C00A9F67E /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B72231D6C1C00A9F67E /* TestCase.swift */; };
 		OBJ_39 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_41 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
 		OBJ_48 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Color.swift */; };
@@ -112,6 +115,9 @@
 		10C565D22249B327007F0047 /* PendingMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMove.swift; sourceTree = "<group>"; };
 		10C565D42249C3EE007F0047 /* PendingMoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingMoveTests.swift; sourceTree = "<group>"; };
 		CDBF2B6B231CC56800A9F67E /* MenuInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInput.swift; sourceTree = "<group>"; };
+		CDBF2B6D231D664C00A9F67E /* PawnRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawnRepo.swift; sourceTree = "<group>"; };
+		CDBF2B6F231D696100A9F67E /* PawnRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawnRepoTests.swift; sourceTree = "<group>"; };
+		CDBF2B72231D6C1C00A9F67E /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		OBJ_14 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
@@ -192,6 +198,14 @@
 			path = core;
 			sourceTree = "<group>";
 		};
+		CDBF2B71231D6C0200A9F67E /* support */ = {
+			isa = PBXGroup;
+			children = (
+				CDBF2B72231D6C1C00A9F67E /* TestCase.swift */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Onitama */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +232,7 @@
 				OBJ_12 /* Color.swift */,
 				OBJ_17 /* Game.swift */,
 				OBJ_18 /* Pawn.swift */,
+				CDBF2B6D231D664C00A9F67E /* PawnRepo.swift */,
 				OBJ_19 /* Player.swift */,
 				OBJ_20 /* Point.swift */,
 				10C565D02249A8B5007F0047 /* Move.swift */,
@@ -239,6 +254,7 @@
 			children = (
 				OBJ_23 /* XCTestManifests.swift */,
 				OBJ_24 /* domain */,
+				CDBF2B71231D6C0200A9F67E /* support */,
 			);
 			name = OnitamaTests;
 			path = Tests/OnitamaTests;
@@ -250,6 +266,7 @@
 				OBJ_25 /* BoardTests.swift */,
 				OBJ_26 /* GameTests.swift */,
 				OBJ_27 /* PawnTests.swift */,
+				CDBF2B6F231D696100A9F67E /* PawnRepoTests.swift */,
 				OBJ_28 /* PlayerTests.swift */,
 				OBJ_29 /* PointTests.swift */,
 				10C565D42249C3EE007F0047 /* PendingMoveTests.swift */,
@@ -437,6 +454,7 @@
 				OBJ_49 /* Config.swift in Sources */,
 				1073ACA322963A810042A31D /* ArrayExt.swift in Sources */,
 				OBJ_51 /* Board.swift in Sources */,
+				CDBF2B6E231D664C00A9F67E /* PawnRepo.swift in Sources */,
 				OBJ_52 /* Game.swift in Sources */,
 				OBJ_53 /* Pawn.swift in Sources */,
 				OBJ_54 /* Player.swift in Sources */,
@@ -461,6 +479,8 @@
 				OBJ_80 /* GameTests.swift in Sources */,
 				10C565D52249C3EE007F0047 /* PendingMoveTests.swift in Sources */,
 				OBJ_81 /* PawnTests.swift in Sources */,
+				CDBF2B73231D6C1C00A9F67E /* TestCase.swift in Sources */,
+				CDBF2B70231D696100A9F67E /* PawnRepoTests.swift in Sources */,
 				OBJ_82 /* PlayerTests.swift in Sources */,
 				OBJ_83 /* PointTests.swift in Sources */,
 			);

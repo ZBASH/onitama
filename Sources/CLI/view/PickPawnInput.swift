@@ -1,14 +1,15 @@
 import Onitama
 
 final class PickPawnInput {
+  // -- dependencies --
   private let mTerminal: Terminal
-  private var mSelectedPawnIndex: Int
-  private var mIsConfirmed: Bool = false
+  
+  // -- properties --
+  private(set) var mEvent: Event? = nil
 
   // -- lifetime --
   init(terminal: Terminal) {
     mTerminal = terminal
-    mSelectedPawnIndex = 0
   }
 
   // -- commands --
@@ -19,32 +20,21 @@ final class PickPawnInput {
   func handleInput(_ input: [UInt8]) {
     switch input {
     case [Terminal.Code.meta1, Terminal.Code.meta2, Terminal.Code.left]:
-      if mSelectedPawnIndex > 0 {
-        mSelectedPawnIndex -= 1
-      }
+      mEvent = .offsetSelection(-1)
     case [Terminal.Code.meta1, Terminal.Code.meta2, Terminal.Code.right]:
-      if mSelectedPawnIndex < Config.Board.size - 1 {
-        mSelectedPawnIndex += 1
-      }
+      mEvent = .offsetSelection(1)
     case [Terminal.Code.enter]:
-      mIsConfirmed = true
+      mEvent = .confirmSelection
     default:
-      break
+      mEvent = nil
     }
 
     mTerminal.writeln()
   }
-
-  // -- queries --
-  var selectedPawnIndex: Int {
-    return mSelectedPawnIndex
-  }
-
-  var confirmedPawnIndex: Int? {
-    if mIsConfirmed {
-      return mSelectedPawnIndex
-    } else {
-      return nil
-    }
+  
+  // -- event --
+  enum Event {
+    case offsetSelection(Int)
+    case confirmSelection
   }
 }

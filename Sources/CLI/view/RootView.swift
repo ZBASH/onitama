@@ -1,7 +1,10 @@
 import Onitama
 
 final class RootView {
+  // -- dependencies --
   private let mTerminal: Terminal
+
+  // -- properties --
   private let mBuffer: TileBuffer
   private let mGameView: GameView
   private let mFlash: Flash
@@ -20,23 +23,19 @@ final class RootView {
 
   // -- commands --
   // -- commands/input
-  func pickPawnId() -> Int? {
+  func pickPawn() -> PickPawnInput.Event? {
     mPickPawnInput.render()
     
     let input = mTerminal.read()
     mMenuInput.handleInput(input)
     mPickPawnInput.handleInput(input)
     
-    return mPickPawnInput.confirmedPawnIndex
+    return mPickPawnInput.mEvent
   }
   
-  func resetInput() {
-    mPickPawnInput = PickPawnInput(terminal: mTerminal)
-  }
-
   // -- commands/render
-  func render(game: Game) {
-    mGameView.render(game: game, selectedPawnIndex: mPickPawnInput.selectedPawnIndex)
+  func render(game: Game, move: PendingMove) {
+    mGameView.render(game: game, selectedPawnIndex: move.mPawnIndex)
   }
 
   func render(error: PendingMove.Error) {

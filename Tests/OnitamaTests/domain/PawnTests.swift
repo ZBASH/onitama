@@ -2,9 +2,9 @@ import XCTest
 
 @testable import Onitama
 
-final class PawnTests: XCTestCase {
+final class PawnTests: TestCase {
   func testItMovesToANewPosition() {
-    let pawn = Pawn(position: Point.zero())
+    let pawn = Pawn(id: 0, color: .red, position: .zero())
 
     pawn.move(to: Point(5, 3))
 

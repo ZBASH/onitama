@@ -11,17 +11,15 @@ final class PlayerView {
   // -- commands --
   func render(player: Player, isCurrentPlayer: Bool, selectedPawnIndex: Int) {
     for (i, pawn) in player.pawns.enumerated() {
-      if !pawn.isCaptured {
-        let isHighlighted = isCurrentPlayer && i == selectedPawnIndex
+      let isHighlighted = isCurrentPlayer && i == selectedPawnIndex
 
-        let tile = Tile(
-          glyph: "#",
-          foreground: isHighlighted ? .none : player.color,
-          background: isHighlighted ? player.color : .none
-        )
+      let tile = Tile(
+        glyph: "#",
+        foreground: isHighlighted ? .none : pawn.color,
+        background: isHighlighted ? pawn.color : .none
+      )
 
-        mBuffer.set(pawn.position, tile: tile)
-      }
+      mBuffer.set(pawn.position, tile: tile)
     }
   }
 }

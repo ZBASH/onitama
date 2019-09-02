@@ -18,21 +18,23 @@ final class App {
     var pendingMove = PendingMove(game: mGame)
     while true {
       mView.clear()
-      mView.render(game: mGame)
+      mView.render(game: mGame, move: pendingMove)
       mView.draw()
       
-      guard let pawnId = mView.pickPawnId() else {
+      switch mView.pickPawn() {
+      case .none:
         continue
+      case .offsetSelection(let offset):
+        pendingMove.pickPawn(byOffset: offset)
+        continue
+      case .confirmSelection:
+        pendingMove.pickCard(card: Point(0, 1))
       }
-
-      pendingMove.pickPawn(byId: pawnId)
-      pendingMove.pickCard(card: Point(0, 1))
 
       switch pendingMove.getValidMove() {
       case .move(let move):
         mGame.makeMove(move: move)
         pendingMove = PendingMove(game: mGame)
-        mView.resetInput()
       case .error(let error):
         mView.render(error: error)
       }

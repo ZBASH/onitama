@@ -1,8 +1,8 @@
 import Darwin.POSIX.termios
 import Foundation
 
-public class Terminal {
-  struct Code {
+class Terminal {
+  enum Code {
     static let meta1: UInt8 = 27
     static let meta2: UInt8 = 91
     static let left: UInt8 = 68
@@ -12,25 +12,26 @@ public class Terminal {
 
   // -- properties --
   private var rawTerm: termios?
+
   private let input: FileHandle = .standardInput
   private let output: FileHandle = .standardOutput
 
   // -- lifetime --
-  public init() {
+  init() {
   }
 
   // -- io --
   // -- io/commands
-  public func write(_ text: String) {
+  func write(_ text: String) {
     print(text, terminator: "")
   }
 
-  public func writeln(_ text: String = "") {
+  func writeln(_ text: String = "") {
     print(text)
   }
 
   // -- raw --
-  public var isRaw: Bool {
+  var isRaw: Bool {
     get {
       return rawTerm != nil
     }
@@ -46,7 +47,7 @@ public class Terminal {
   }
 
   // -- raw/queries
-  public func read() -> [UInt8] {
+  func read() -> [UInt8] {
     isRaw = true
     defer {
       isRaw = false

@@ -1,6 +1,11 @@
-final class Player {
-  var color: Color = .none
-  var pawns: [Pawn] = []
+/// `Player` is a user participating in the game.
+public final class Player {
+  /// `color` is this player's, and its corresponding pieces', color.
+  public private(set) var color: Color = .none
+
+  /// `pawns` in the list of pawns belonging to this player.
+  public private(set) var pawns: [Pawn] = []
+
   var pawnToMove: Pawn?
 
   // -- commands --

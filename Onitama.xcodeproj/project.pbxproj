@@ -32,24 +32,24 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		106C3E8122AC15D9006C3856 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8022AC15D9006C3856 /* BoardView.swift */; };
-		106C3E8322AC1906006C3856 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8222AC1906006C3856 /* PlayerView.swift */; };
-		106C3E8522AC208C006C3856 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8422AC208C006C3856 /* RootView.swift */; };
-		106C3E8722AC230B006C3856 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8622AC230B006C3856 /* Flash.swift */; };
-		106C3E8922AC2782006C3856 /* PickPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PickPawnInput.swift */; };
-		106C3E8B22AC2B16006C3856 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8A22AC2B16006C3856 /* App.swift */; };
 		1073ACA322963A810042A31D /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073ACA222963A810042A31D /* ArrayExt.swift */; };
-		1073ACAA22963D030042A31D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9A2296217E0042A31D /* GameView.swift */; };
-		1073ACAB22963D030042A31D /* TileBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9C229621E50042A31D /* TileBuffer.swift */; };
-		1073ACAC22963D030042A31D /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9F2296227B0042A31D /* Tile.swift */; };
 		10C565D12249A8B5007F0047 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D02249A8B5007F0047 /* Move.swift */; };
 		10C565D32249B327007F0047 /* PendingMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D22249B327007F0047 /* PendingMove.swift */; };
 		10C565D52249C3EE007F0047 /* PendingMoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D42249C3EE007F0047 /* PendingMoveTests.swift */; };
+		CD356D95231C7F6700FA4327 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8A22AC2B16006C3856 /* App.swift */; };
+		CD356D98231C804500FA4327 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9A2296217E0042A31D /* GameView.swift */; };
+		CD356D99231C804500FA4327 /* TileBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9C229621E50042A31D /* TileBuffer.swift */; };
+		CD356D9A231C804500FA4327 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073AC9F2296227B0042A31D /* Tile.swift */; };
+		CD356D9B231C804500FA4327 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8022AC15D9006C3856 /* BoardView.swift */; };
+		CD356D9C231C804500FA4327 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8222AC1906006C3856 /* PlayerView.swift */; };
+		CD356D9D231C804500FA4327 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8422AC208C006C3856 /* RootView.swift */; };
+		CD356D9E231C804500FA4327 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8622AC230B006C3856 /* Flash.swift */; };
+		CD356D9F231C804500FA4327 /* PickPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PickPawnInput.swift */; };
+		CD356DA0231C804500FA4327 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Terminal.swift */; };
 		OBJ_39 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_41 /* Onitama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Onitama::Onitama::Product" /* Onitama.framework */; };
 		OBJ_48 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Color.swift */; };
 		OBJ_49 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Config.swift */; };
-		OBJ_50 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Terminal.swift */; };
 		OBJ_51 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Board.swift */; };
 		OBJ_52 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Game.swift */; };
 		OBJ_53 /* Pawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Pawn.swift */; };
@@ -181,13 +181,19 @@
 			path = collections;
 			sourceTree = "<group>";
 		};
+		CD356D96231C7F7E00FA4327 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_14 /* Terminal.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Onitama */ = {
 			isa = PBXGroup;
 			children = (
-				106C3E8A22AC2B16006C3856 /* App.swift */,
-				1073AC99229621650042A31D /* view */,
-				OBJ_11 /* core */,
 				OBJ_15 /* domain */,
+				OBJ_11 /* core */,
 			);
 			name = Onitama;
 			path = Sources/Onitama;
@@ -197,9 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				1073ACA122963A620042A31D /* collections */,
-				OBJ_12 /* Color.swift */,
 				OBJ_13 /* Config.swift */,
-				OBJ_14 /* Terminal.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -208,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_16 /* Board.swift */,
+				OBJ_12 /* Color.swift */,
 				OBJ_17 /* Game.swift */,
 				OBJ_18 /* Pawn.swift */,
 				OBJ_19 /* Player.swift */,
@@ -282,6 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* main.swift */,
+				106C3E8A22AC2B16006C3856 /* App.swift */,
+				1073AC99229621650042A31D /* view */,
+				CD356D96231C7F7E00FA4327 /* core */,
 			);
 			name = CLI;
 			path = Sources/CLI;
@@ -401,7 +409,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				CD356D9D231C804500FA4327 /* RootView.swift in Sources */,
 				OBJ_39 /* main.swift in Sources */,
+				CD356D98231C804500FA4327 /* GameView.swift in Sources */,
+				CD356D9C231C804500FA4327 /* PlayerView.swift in Sources */,
+				CD356D9A231C804500FA4327 /* Tile.swift in Sources */,
+				CD356D9E231C804500FA4327 /* Flash.swift in Sources */,
+				CD356D9B231C804500FA4327 /* BoardView.swift in Sources */,
+				CD356D9F231C804500FA4327 /* PickPawnInput.swift in Sources */,
+				CD356D95231C7F6700FA4327 /* App.swift in Sources */,
+				CD356D99231C804500FA4327 /* TileBuffer.swift in Sources */,
+				CD356DA0231C804500FA4327 /* Terminal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,25 +427,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				1073ACAB22963D030042A31D /* TileBuffer.swift in Sources */,
 				10C565D32249B327007F0047 /* PendingMove.swift in Sources */,
 				OBJ_48 /* Color.swift in Sources */,
-				106C3E8522AC208C006C3856 /* RootView.swift in Sources */,
-				106C3E8322AC1906006C3856 /* PlayerView.swift in Sources */,
-				1073ACAC22963D030042A31D /* Tile.swift in Sources */,
 				10C565D12249A8B5007F0047 /* Move.swift in Sources */,
 				OBJ_49 /* Config.swift in Sources */,
 				1073ACA322963A810042A31D /* ArrayExt.swift in Sources */,
-				OBJ_50 /* Terminal.swift in Sources */,
 				OBJ_51 /* Board.swift in Sources */,
-				106C3E8922AC2782006C3856 /* PickPawnInput.swift in Sources */,
 				OBJ_52 /* Game.swift in Sources */,
-				106C3E8B22AC2B16006C3856 /* App.swift in Sources */,
 				OBJ_53 /* Pawn.swift in Sources */,
 				OBJ_54 /* Player.swift in Sources */,
-				106C3E8722AC230B006C3856 /* Flash.swift in Sources */,
-				106C3E8122AC15D9006C3856 /* BoardView.swift in Sources */,
-				1073ACAA22963D030042A31D /* GameView.swift in Sources */,
 				OBJ_55 /* Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

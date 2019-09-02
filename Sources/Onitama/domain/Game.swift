@@ -1,10 +1,20 @@
-final class Game {
+/// `Game` is an entity representing a session of play.
+public final class Game {
+  // -- properties --
+  /// `board` is the field on which the game takes place.
+  public let board: Board = .create()
+
   var currentPlayerId: Int = 0
-  let board: Board = .create()
   var players: [Player] = []
 
+  // -- lifetime --
+  /// `init` constructs a new game.
+  public init() {
+  }
+
   // -- commands --
-  func start() {
+  /// `start` begins the game, setting up its initial state.
+  public func start() {
     let player1 = Player.create(atRow: 0)
     player1.chooseColor(.red)
     players.append(player1)
@@ -14,7 +24,8 @@ final class Game {
     players.append(player2)
   }
 
-  func makeMove(move: Move) {
+  /// `makeMove` resolves a pre-validated move.
+  public func makeMove(move: Move) {
     // current player makes move
     guard let pawn = findCurrentPlayerPawn(byId: move.pawnId) else {
       return
@@ -32,11 +43,13 @@ final class Game {
   }
 
   // -- queries --
-  var currentPlayer: Player {
+  /// `currentPlayer` is the user presently taking their turn.
+  public var currentPlayer: Player {
     return players[currentPlayerId]
   }
 
-  var otherPlayer: Player {
+  /// `otherPlayer` is the user not presently taking their turn.
+  public var otherPlayer: Player {
     return players[1-currentPlayerId]
   }
 

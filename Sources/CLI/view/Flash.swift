@@ -1,3 +1,5 @@
+import Onitama
+
 final class Flash {
   private var mText: String?
   private let mTerminal: Terminal

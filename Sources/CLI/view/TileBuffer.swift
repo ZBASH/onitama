@@ -1,3 +1,5 @@
+import Onitama
+
 final class TileBuffer {
   private let mTerminal: Terminal
   private var mBuffer: [[Tile]]?

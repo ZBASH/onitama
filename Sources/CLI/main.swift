@@ -1,4 +1,2 @@
-import Onitama
-
-let app = Onitama.App()
+let app = App()
 app.start()

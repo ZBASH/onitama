@@ -1,27 +1,36 @@
-final class PendingMove {
+/// `PendingMove` is a transactional entity representing a user's currently
+/// selected, but not necessarily confirmed, move.
+public final class PendingMove {
   // -- dependencies --
   let game: Game
 
   // -- properties --
   var pawnId: Int?
+
   var card: Point?
 
   // -- lifetime --
-  init(game: Game) {
+  /// `init` constructs a PendingMove for a specific game.
+  public init(game: Game) {
     self.game = game
   }
 
   // -- commands --
-  func pickPawn(byId id: Int) {
+  /// `pickPawn` selects the current user's pawn by ID.
+  public func pickPawn(byId id: Int) {
     self.pawnId = id
   }
 
-  func pickCard(card: Point) {
+  /// `pickCard` selects the card to play as a point delta.
+  public func pickCard(card: Point) {
     self.card = card
   }
 
   // -- queries --
-  func getValidMove() -> Result {
+  /// `getValidMove` validates the current state to produce a valid move.
+  ///
+  /// - Returns: A move or a validation error.
+  public func getValidMove() -> Result {
     guard let pawnId = pawnId else {
       return .error(.missingPawnId)
     }
@@ -51,7 +60,8 @@ final class PendingMove {
     return .move(Move(pawnId: pawnId, newPosition: newPosition))
   }
 
-  enum Result {
+  /// `Result` is a value-type representing either a valid or invalid state.
+  public enum Result {
     case error(Error)
     case move(Move)
 
@@ -74,7 +84,8 @@ final class PendingMove {
     }
   }
 
-  enum Error: Swift.Error {
+  /// `Error` is the set of errors possibly produced by `getValidMove`.
+  public enum Error: Swift.Error {
     case missingPawnId
     case missingCard
     case invalidPawnId(Int)

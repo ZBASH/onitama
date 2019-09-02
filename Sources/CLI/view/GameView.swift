@@ -1,3 +1,5 @@
+import Onitama
+
 final class GameView {
   private let mBuffer: TileBuffer
   private let mBoardView: BoardView

@@ -1,5 +1,7 @@
-struct Board: Equatable {
-  var grid: [[Character]]
+/// `Board` is an entity representing the state of the grid the game is played on.
+public class Board {
+  /// `grid` is the 2D grid of characters.
+  public private(set) var grid: [[Character]]
 
   // -- lifetime --
   init(grid: [[Character]]) {
@@ -21,5 +23,4 @@ struct Board: Equatable {
   static func create(size: Int) -> Board {
     return Board(grid: Array.grid(repeating: Config.Board.space, count: size))
   }
-
 }

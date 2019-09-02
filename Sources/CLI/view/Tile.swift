@@ -1,3 +1,5 @@
+import Onitama
+
 struct Tile {
   private let glyph: Character
   private let foreground: Color

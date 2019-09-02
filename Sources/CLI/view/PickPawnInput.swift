@@ -1,3 +1,5 @@
+import Onitama
+
 final class PickPawnInput {
   private let mTerminal: Terminal
   private var mSelectedPawnIndex: Int

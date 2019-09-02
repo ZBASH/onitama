@@ -1,9 +1,14 @@
-struct Point: Equatable {
-  let x: Int
-  let y: Int
+/// `Point` is a value-type representing a grid position.
+public struct Point: Equatable {
+  /// `x` is the point's column.
+  public let x: Int
+
+  /// `y` is the point's row.
+  public let y: Int
 
   // -- lifetime --
-  init(_ x: Int, _ y: Int) {
+  /// `init` constructs a new point.
+  public init(_ x: Int, _ y: Int) {
     self.x = x
     self.y = y
   }

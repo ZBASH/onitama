@@ -1,3 +1,5 @@
+import Onitama
+
 final class PlayerView {
   private let mBuffer: TileBuffer
 

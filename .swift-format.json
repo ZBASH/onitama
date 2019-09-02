@@ -47,7 +47,7 @@
     "UseShorthandTypeNames": false,
     "UseSingleLinePropertyGetter": true,
     "UseSpecialEscapeSequences": true,
-    "UseSynthesizedInitializer": true,
+    "UseSynthesizedInitializer": false,
     "UseTripleSlashForDocumentationComments": true,
     "ValidateDocumentationComments": true
   },

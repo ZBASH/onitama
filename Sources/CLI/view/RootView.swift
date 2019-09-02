@@ -1,3 +1,5 @@
+import Onitama
+
 final class RootView {
   private let mTerminal: Terminal
   private let mBuffer: TileBuffer

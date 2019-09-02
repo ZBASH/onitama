@@ -6,6 +6,7 @@ final class RootView {
 
   // -- properties --
   private let mBuffer: TileBuffer
+
   private let mGameView: GameView
   private let mFlash: Flash
   private var mPickPawnInput: PickPawnInput
@@ -25,14 +26,14 @@ final class RootView {
   // -- commands/input
   func pickPawn() -> PickPawnInput.Event? {
     mPickPawnInput.render()
-    
+
     let input = mTerminal.read()
     mMenuInput.handleInput(input)
     mPickPawnInput.handleInput(input)
-    
+
     return mPickPawnInput.mEvent
   }
-  
+
   // -- commands/render
   func render(game: Game, move: PendingMove) {
     mGameView.render(game: game, selectedPawnIndex: move.mPawnIndex)

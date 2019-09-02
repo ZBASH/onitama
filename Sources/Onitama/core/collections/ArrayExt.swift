@@ -4,10 +4,10 @@ extension Array {
     if index < 0 || index >= count {
       return nil
     }
-    
+
     return self[index]
   }
-    
+
   /// `grid` repeats an element in a rectangular grid with width and height
   /// equal to `count`.
   static public func grid(

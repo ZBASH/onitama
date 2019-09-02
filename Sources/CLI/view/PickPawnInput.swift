@@ -3,7 +3,7 @@ import Onitama
 final class PickPawnInput {
   // -- dependencies --
   private let mTerminal: Terminal
-  
+
   // -- properties --
   private(set) var mEvent: Event? = nil
 
@@ -16,7 +16,7 @@ final class PickPawnInput {
   func render() {
     mTerminal.writeln("\nselect a pawn [< > enter]")
   }
-  
+
   func handleInput(_ input: [UInt8]) {
     switch input {
     case [Terminal.Code.meta1, Terminal.Code.meta2, Terminal.Code.left]:
@@ -31,7 +31,7 @@ final class PickPawnInput {
 
     mTerminal.writeln()
   }
-  
+
   // -- event --
   enum Event {
     case offsetSelection(Int)

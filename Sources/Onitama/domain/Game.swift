@@ -2,7 +2,7 @@
 public final class Game {
   // -- dependencies --
   private let mPawns: PawnRepo
-  
+
   // -- properties --
   /// `mBoard` is the field on which the game takes place.
   public let mBoard: Board = .create()
@@ -15,7 +15,7 @@ public final class Game {
   public convenience init() {
     self.init(pawns: PawnRepo())
   }
-  
+
   init(pawns: PawnRepo) {
     mPawns = pawns
   }

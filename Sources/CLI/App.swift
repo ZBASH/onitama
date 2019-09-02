@@ -20,7 +20,7 @@ final class App {
       mView.clear()
       mView.render(game: mGame, move: pendingMove)
       mView.draw()
-      
+
       switch mView.pickPawn() {
       case .none:
         continue

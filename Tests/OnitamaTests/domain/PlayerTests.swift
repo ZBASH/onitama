@@ -14,14 +14,16 @@ final class PlayerTests: TestCase {
     player.chooseColor(.red)
     XCTAssertEqual(player.color, .red)
   }
-  
+
   func testItHasAllUncapturedPawns() {
     let player = Player(pawns: PawnRepo(size: 2))
     player.chooseColor(.red)
-    
+
     XCTAssertEqual(player.pawns.count, 2)
-    XCTAssert(player.pawns.allSatisfy { pawn in
-      pawn.color == .red
-    })
+    XCTAssert(
+      player.pawns.allSatisfy { pawn in
+        pawn.color == .red
+      }
+    )
   }
 }

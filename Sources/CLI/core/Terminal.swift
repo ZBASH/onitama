@@ -30,7 +30,7 @@ class Terminal {
   func writeln(_ text: String = "") {
     print(text)
   }
-  
+
   func exit() {
     Darwin.exit(0)
   }

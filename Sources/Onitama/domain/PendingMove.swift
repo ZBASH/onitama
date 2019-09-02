@@ -7,6 +7,7 @@ public final class PendingMove {
   // -- properties --
   /// `mPawnIndex` is the index of the currently selected pawn.
   public private(set) var mPawnIndex: Int
+
   /// `mCard` is the currently selected movement card, or none.
   public private(set) var mCard: Point?
 
@@ -24,7 +25,7 @@ public final class PendingMove {
     if nextIndex < 0 || nextIndex >= mGame.currentPlayer.pawns.count {
       return
     }
-    
+
     mPawnIndex = nextIndex
   }
 
@@ -62,7 +63,7 @@ public final class PendingMove {
 
     return .move(Move(pawnId: pawn.id, newPosition: newPosition))
   }
-  
+
   // -- types --
   /// `Result` is a value-type representing either a valid or invalid state.
   public enum Result {

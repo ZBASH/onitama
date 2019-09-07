@@ -32,6 +32,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		10250B502323124F001A0F2B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B4F2323124F001A0F2B /* Card.swift */; };
+		10250B5723231957001A0F2B /* CardRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B5623231957001A0F2B /* CardRepo.swift */; };
+		10250B592323205C001A0F2B /* CardRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B582323205C001A0F2B /* CardRepoTests.swift */; };
+		10483C8523236C2F001F3D7C /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10483C8323236B6D001F3D7C /* CardData.swift */; };
 		1073ACA322963A810042A31D /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073ACA222963A810042A31D /* ArrayExt.swift */; };
 		10C565D12249A8B5007F0047 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D02249A8B5007F0047 /* Move.swift */; };
 		10C565D32249B327007F0047 /* PendingMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D22249B327007F0047 /* PendingMove.swift */; };
@@ -101,6 +105,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10250B4F2323124F001A0F2B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		10250B5623231957001A0F2B /* CardRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepo.swift; sourceTree = "<group>"; };
+		10250B582323205C001A0F2B /* CardRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepoTests.swift; sourceTree = "<group>"; };
+		10483C8323236B6D001F3D7C /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		106C3E8022AC15D9006C3856 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		106C3E8222AC1906006C3856 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		106C3E8422AC208C006C3856 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -228,15 +236,18 @@
 		OBJ_15 /* domain */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* Board.swift */,
-				OBJ_12 /* Color.swift */,
 				OBJ_17 /* Game.swift */,
+				OBJ_16 /* Board.swift */,
+				OBJ_19 /* Player.swift */,
+				10250B4F2323124F001A0F2B /* Card.swift */,
+				10250B5623231957001A0F2B /* CardRepo.swift */,
+				10483C8323236B6D001F3D7C /* CardData.swift */,
 				OBJ_18 /* Pawn.swift */,
 				CDBF2B6D231D664C00A9F67E /* PawnRepo.swift */,
-				OBJ_19 /* Player.swift */,
-				OBJ_20 /* Point.swift */,
 				10C565D02249A8B5007F0047 /* Move.swift */,
 				10C565D22249B327007F0047 /* PendingMove.swift */,
+				OBJ_20 /* Point.swift */,
+				OBJ_12 /* Color.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -264,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_25 /* BoardTests.swift */,
+				10250B582323205C001A0F2B /* CardRepoTests.swift */,
 				OBJ_26 /* GameTests.swift */,
 				OBJ_27 /* PawnTests.swift */,
 				CDBF2B6F231D696100A9F67E /* PawnRepoTests.swift */,
@@ -451,10 +463,13 @@
 				10C565D32249B327007F0047 /* PendingMove.swift in Sources */,
 				OBJ_48 /* Color.swift in Sources */,
 				10C565D12249A8B5007F0047 /* Move.swift in Sources */,
+				10483C8523236C2F001F3D7C /* CardData.swift in Sources */,
 				OBJ_49 /* Config.swift in Sources */,
+				10250B5723231957001A0F2B /* CardRepo.swift in Sources */,
 				1073ACA322963A810042A31D /* ArrayExt.swift in Sources */,
 				OBJ_51 /* Board.swift in Sources */,
 				CDBF2B6E231D664C00A9F67E /* PawnRepo.swift in Sources */,
+				10250B502323124F001A0F2B /* Card.swift in Sources */,
 				OBJ_52 /* Game.swift in Sources */,
 				OBJ_53 /* Pawn.swift in Sources */,
 				OBJ_54 /* Player.swift in Sources */,
@@ -475,6 +490,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_78 /* XCTestManifests.swift in Sources */,
+				10250B592323205C001A0F2B /* CardRepoTests.swift in Sources */,
 				OBJ_79 /* BoardTests.swift in Sources */,
 				OBJ_80 /* GameTests.swift in Sources */,
 				10C565D52249C3EE007F0047 /* PendingMoveTests.swift in Sources */,

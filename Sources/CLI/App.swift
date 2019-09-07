@@ -5,9 +5,9 @@ final class App {
   private let mView: RootView
 
   // lifetime
-  init() {
+  init() throws {
     let terminal = Terminal()
-    mGame = Game()
+    mGame = try Game()
     mView = RootView(terminal: terminal)
   }
 
@@ -24,10 +24,10 @@ final class App {
       switch mView.pickPawn() {
       case .none:
         continue
-      case .offsetSelection(let offset):
+      case .some(.offsetSelection(let offset)):
         pendingMove.pickPawn(byOffset: offset)
         continue
-      case .confirmSelection:
+      case .some(.confirmSelection):
         pendingMove.pickCard(card: Point(0, 1))
       }
 

@@ -1,6 +1,8 @@
 /// `Game` is an entity representing a session of play.
 public final class Game {
   // -- dependencies --
+  private let mCards: CardRepo
+
   private let mPawns: PawnRepo
 
   // -- properties --
@@ -12,11 +14,15 @@ public final class Game {
 
   // -- lifetime --
   /// `init` constructs a new game.
-  public convenience init() {
-    self.init(pawns: PawnRepo())
+  public convenience init() throws {
+    self.init(
+      cards: try CardRepo.fromFile(),
+      pawns: PawnRepo()
+    )
   }
 
-  init(pawns: PawnRepo) {
+  init(cards: CardRepo, pawns: PawnRepo) {
+    mCards = cards
     mPawns = pawns
   }
 

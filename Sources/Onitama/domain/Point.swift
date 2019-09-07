@@ -1,5 +1,5 @@
 /// `Point` is a value-type representing a grid position.
-public struct Point: Equatable {
+public struct Point: Equatable, Decodable {
   /// `x` is the point's column.
   public let x: Int
 

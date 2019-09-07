@@ -8,7 +8,7 @@ final class PendingMoveTests: TestCase {
     game.start()
     let pendingMove = PendingMove(game: game)
 
-    pendingMove.pickPawn(byIndex: 1)
+    pendingMove.pickPawn(byOffset: 1)
     pendingMove.pickCard(card: Point(0, 1))
     let actual = pendingMove.getValidMove().move
 
@@ -23,7 +23,7 @@ final class PendingMoveTests: TestCase {
     game.makeMove(move: Move(pawnId: 0, newPosition: .zero()))
     let pendingMove = PendingMove(game: game)
 
-    pendingMove.pickPawn(byIndex: 1)
+    pendingMove.pickPawn(byOffset: 1)
     pendingMove.pickCard(card: Point(0, 1))
     let actual = pendingMove.getValidMove().move
 
@@ -37,7 +37,7 @@ final class PendingMoveTests: TestCase {
     game.start()
     let pendingMove = PendingMove(game: game)
 
-    pendingMove.pickPawn(byIndex: 100)
+    pendingMove.pickPawn(byOffset: 100)
     pendingMove.pickCard(card: Point.zero())
     let actual = pendingMove.getValidMove()
 
@@ -52,7 +52,7 @@ final class PendingMoveTests: TestCase {
     game.start()
     let pendingMove = PendingMove(game: game)
 
-    pendingMove.pickPawn(byIndex: 2)
+    pendingMove.pickPawn(byOffset: 2)
     pendingMove.pickCard(card: Point(3, 0))
     let actual = pendingMove.getValidMove()
 
@@ -67,7 +67,7 @@ final class PendingMoveTests: TestCase {
     game.start()
     let pendingMove = PendingMove(game: game)
 
-    pendingMove.pickPawn(byIndex: 0)
+    pendingMove.pickPawn(byOffset: 0)
     pendingMove.pickCard(card: Point(1, 0))
     let actual = pendingMove.getValidMove()
 

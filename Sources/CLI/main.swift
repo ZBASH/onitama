@@ -1,2 +1,6 @@
-let app = App()
-app.start()
+do {
+  let app = try App()
+  app.start()
+} catch {
+  debugPrint("unhandled error: \(error)")
+}

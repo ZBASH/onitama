@@ -1,7 +1,7 @@
 /// `Pawn` is an entity representing the state of a piece.
 public final class Pawn {
   // -- properties --
-  /// `id` is the pawn's unique identifier
+  /// `id` is the pawn's unique identifier.
   public let id: Int
 
   /// `color` is the pawn's team color.

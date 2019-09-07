@@ -4,6 +4,9 @@ include ./Makefile.base.mk
 help-column-width = 12
 
 # -- context --
+proj-root 		 = .
+proj-resources = $(proj-root)/Resources
+
 tools-swift    = swift
 tools-swiftfmt = swift-format --configuration .swift-format.json --recursive ./
 
@@ -41,15 +44,25 @@ r/debug: build
 .PHONY: r/debug
 
 # -- build --
+build = $(tools-swift) build
+
 ## builds the cli
-build:
-	$(tools-swift) build
+build: b/sources b/resources
 .PHONY: build
 
 ## cleans the cli
 b/clean:
 	$(tools-swift) package clean
 .PHONY: clean
+
+# -- build/helpers
+b/sources:
+	$(build)
+.PHONY: b/sources
+
+b/resources:
+	cp $(proj-resources)/* $$($(build) --show-bin-path)
+.PHONY: b/resources
 
 # -- verify --
 ## runs all verification steps

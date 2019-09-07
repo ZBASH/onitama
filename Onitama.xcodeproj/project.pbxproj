@@ -35,7 +35,7 @@
 		10250B502323124F001A0F2B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B4F2323124F001A0F2B /* Card.swift */; };
 		10250B5723231957001A0F2B /* CardRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B5623231957001A0F2B /* CardRepo.swift */; };
 		10250B592323205C001A0F2B /* CardRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B582323205C001A0F2B /* CardRepoTests.swift */; };
-		10483C8523236C2F001F3D7C /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10483C8323236B6D001F3D7C /* CardData.swift */; };
+		106183C6232420E000CBEC6E /* cards.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10483C8723241F5F001F3D7C /* cards.json */; };
 		1073ACA322963A810042A31D /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073ACA222963A810042A31D /* ArrayExt.swift */; };
 		10C565D12249A8B5007F0047 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D02249A8B5007F0047 /* Move.swift */; };
 		10C565D32249B327007F0047 /* PendingMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D22249B327007F0047 /* PendingMove.swift */; };
@@ -104,11 +104,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		106183C5232420DA00CBEC6E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				106183C6232420E000CBEC6E /* cards.json in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		10250B4F2323124F001A0F2B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		10250B5623231957001A0F2B /* CardRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepo.swift; sourceTree = "<group>"; };
 		10250B582323205C001A0F2B /* CardRepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepoTests.swift; sourceTree = "<group>"; };
-		10483C8323236B6D001F3D7C /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		10483C8723241F5F001F3D7C /* cards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cards.json; sourceTree = "<group>"; };
 		106C3E8022AC15D9006C3856 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		106C3E8222AC1906006C3856 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		106C3E8422AC208C006C3856 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -174,6 +187,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10483C8623241F23001F3D7C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10483C8723241F5F001F3D7C /* cards.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		1073AC99229621650042A31D /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +262,6 @@
 				OBJ_19 /* Player.swift */,
 				10250B4F2323124F001A0F2B /* Card.swift */,
 				10250B5623231957001A0F2B /* CardRepo.swift */,
-				10483C8323236B6D001F3D7C /* CardData.swift */,
 				OBJ_18 /* Pawn.swift */,
 				CDBF2B6D231D664C00A9F67E /* PawnRepo.swift */,
 				10C565D02249A8B5007F0047 /* Move.swift */,
@@ -302,6 +322,7 @@
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_21 /* Tests */,
+				10483C8623241F23001F3D7C /* Resources */,
 				OBJ_30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -336,6 +357,7 @@
 			buildPhases = (
 				OBJ_38 /* Sources */,
 				OBJ_40 /* Frameworks */,
+				106183C5232420DA00CBEC6E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -463,7 +485,6 @@
 				10C565D32249B327007F0047 /* PendingMove.swift in Sources */,
 				OBJ_48 /* Color.swift in Sources */,
 				10C565D12249A8B5007F0047 /* Move.swift in Sources */,
-				10483C8523236C2F001F3D7C /* CardData.swift in Sources */,
 				OBJ_49 /* Config.swift in Sources */,
 				10250B5723231957001A0F2B /* CardRepo.swift in Sources */,
 				1073ACA322963A810042A31D /* ArrayExt.swift in Sources */,

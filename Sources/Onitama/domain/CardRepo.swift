@@ -2,11 +2,19 @@ import Foundation
 
 final class CardRepo {
   // -- properties --
-  let mAll: [Card]
+  private(set) var mAll: [Card]
 
   // -- lifetime --
   init(cards: [Card]) {
     mAll = cards
+  }
+
+  // -- commands --
+  func draw(count: Int) -> [Card] {
+    mAll.shuffle()
+    let cards = mAll[mAll.count - count..<mAll.count]
+    mAll.removeLast(count)
+    return Array(cards)
   }
 
   // -- factories --
@@ -23,7 +31,7 @@ final class CardRepo {
   }
 
   private static func jsonUrl() throws -> URL {
-    if let url = Bundle.main.url(forResource: "cards", withExtension: "json") {
+    if let url = Config.bundle.url(forResource: "cards", withExtension: "json") {
       return url
     }
 

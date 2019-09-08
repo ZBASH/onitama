@@ -4,8 +4,9 @@ include ./Makefile.base.mk
 help-column-width = 12
 
 # -- context --
-proj-root 		 = .
-proj-resources = $(proj-root)/Resources
+proj-root 	   = .
+proj-lib       = $(proj-root)/Sources/Onitama
+proj-lib-res   = $(proj-lib)/Resources
 
 tools-swift    = swift
 tools-swiftfmt = swift-format --configuration .swift-format.json --recursive ./
@@ -35,7 +36,7 @@ run:
 .PHONY: run
 
 ## cleans and runs the cli
-r/clean: b/clean run
+r/clean: b/clean build run
 .PHONY: r/clean
 
 ## runs the cli in the debugger
@@ -61,7 +62,7 @@ b/sources:
 .PHONY: b/sources
 
 b/resources:
-	cp $(proj-resources)/* $$($(build) --show-bin-path)
+	cp $(proj-lib-res)/* $$($(build) --show-bin-path)
 .PHONY: b/resources
 
 # -- verify --

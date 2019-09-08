@@ -3,8 +3,8 @@ import XCTest
 @testable import Onitama
 
 final class GameTests: TestCase {
-  func testItHasAFirstPlayer() {
-    let game = Game.init()
+  func testItHasAFirstPlayer() throws {
+    let game = try Game()
     game.start()
 
     let player = game.players[0]
@@ -13,8 +13,8 @@ final class GameTests: TestCase {
     XCTAssertEqual(player.color, Color.red)
   }
 
-  func testItHasASecondPlayer() {
-    let game = Game.init()
+  func testItHasASecondPlayer() throws {
+    let game = try Game()
     game.start()
 
     let player = game.players[1]
@@ -23,8 +23,8 @@ final class GameTests: TestCase {
     XCTAssertEqual(player.color, Color.blue)
   }
 
-  func testItMakesAMove() {
-    let game = Game.init()
+  func testItMakesAMove() throws {
+    let game = try Game()
     game.start()
     let pawn = game.findCurrentPlayerPawn(byIndex: 2)
 
@@ -34,8 +34,8 @@ final class GameTests: TestCase {
     XCTAssertEqual(pawn?.position, move.newPosition)
   }
 
-  func testItSwapsTheCurrentPlayerAfterMakingAMove() {
-    let game = Game.init()
+  func testItSwapsTheCurrentPlayerAfterMakingAMove() throws {
+    let game = try Game()
     game.start()
 
     let previousPlayer = game.currentPlayer

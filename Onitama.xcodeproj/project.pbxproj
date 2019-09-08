@@ -35,7 +35,6 @@
 		10250B502323124F001A0F2B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B4F2323124F001A0F2B /* Card.swift */; };
 		10250B5723231957001A0F2B /* CardRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B5623231957001A0F2B /* CardRepo.swift */; };
 		10250B592323205C001A0F2B /* CardRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10250B582323205C001A0F2B /* CardRepoTests.swift */; };
-		106183C6232420E000CBEC6E /* cards.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 10483C8723241F5F001F3D7C /* cards.json */; };
 		1073ACA322963A810042A31D /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1073ACA222963A810042A31D /* ArrayExt.swift */; };
 		10C565D12249A8B5007F0047 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D02249A8B5007F0047 /* Move.swift */; };
 		10C565D32249B327007F0047 /* PendingMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C565D22249B327007F0047 /* PendingMove.swift */; };
@@ -50,6 +49,7 @@
 		CD356D9E231C804500FA4327 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8622AC230B006C3856 /* Flash.swift */; };
 		CD356D9F231C804500FA4327 /* PickPawnInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106C3E8822AC2782006C3856 /* PickPawnInput.swift */; };
 		CD356DA0231C804500FA4327 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Terminal.swift */; };
+		CD773DCE2324A56D00773A06 /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = 10483C8723241F5F001F3D7C /* cards.json */; };
 		CDBF2B6C231CC56800A9F67E /* MenuInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B6B231CC56800A9F67E /* MenuInput.swift */; };
 		CDBF2B6E231D664C00A9F67E /* PawnRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B6D231D664C00A9F67E /* PawnRepo.swift */; };
 		CDBF2B70231D696100A9F67E /* PawnRepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBF2B6F231D696100A9F67E /* PawnRepoTests.swift */; };
@@ -103,19 +103,6 @@
 			remoteInfo = OnitamaTests;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		106183C5232420DA00CBEC6E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				106183C6232420E000CBEC6E /* cards.json in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10250B4F2323124F001A0F2B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -187,12 +174,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10483C8623241F23001F3D7C /* Resources */ = {
+		10483C8623241F23001F3D7C /* resources */ = {
 			isa = PBXGroup;
 			children = (
 				10483C8723241F5F001F3D7C /* cards.json */,
 			);
-			path = Resources;
+			path = resources;
 			sourceTree = "<group>";
 		};
 		1073AC99229621650042A31D /* view */ = {
@@ -240,6 +227,7 @@
 			children = (
 				OBJ_15 /* domain */,
 				OBJ_11 /* core */,
+				10483C8623241F23001F3D7C /* resources */,
 			);
 			name = Onitama;
 			path = Sources/Onitama;
@@ -322,7 +310,6 @@
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_21 /* Tests */,
-				10483C8623241F23001F3D7C /* Resources */,
 				OBJ_30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -357,7 +344,6 @@
 			buildPhases = (
 				OBJ_38 /* Sources */,
 				OBJ_40 /* Frameworks */,
-				106183C5232420DA00CBEC6E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -375,6 +361,7 @@
 			buildPhases = (
 				OBJ_47 /* Sources */,
 				OBJ_56 /* Frameworks */,
+				CD773DCD2324A54D00773A06 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -457,6 +444,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD773DCD2324A54D00773A06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD773DCE2324A56D00773A06 /* cards.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_38 /* Sources */ = {

@@ -4,19 +4,19 @@ import XCTest
 
 final class PlayerTests: TestCase {
   func testItStartsWithNoColor() {
-    let player = Player(pawns: PawnRepo(size: 2))
+    let player = Player(cards: [], pawns: PawnRepo(size: 2))
     XCTAssertEqual(player.color, .none)
   }
 
   func testItChoosesAColor() {
-    let player = Player(pawns: PawnRepo(size: 2))
+    let player = Player(cards: [], pawns: PawnRepo(size: 2))
 
     player.chooseColor(.red)
     XCTAssertEqual(player.color, .red)
   }
 
   func testItHasAllUncapturedPawns() {
-    let player = Player(pawns: PawnRepo(size: 2))
+    let player = Player(cards: [], pawns: PawnRepo(size: 2))
     player.chooseColor(.red)
 
     XCTAssertEqual(player.pawns.count, 2)

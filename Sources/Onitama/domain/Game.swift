@@ -29,11 +29,11 @@ public final class Game {
   // -- commands --
   /// `start` begins the game, setting up its initial state.
   public func start() {
-    let player1 = Player(pawns: mPawns)
+    let player1 = Player(cards: mCards.draw(count: 2), pawns: mPawns)
     player1.chooseColor(.red)
     players.append(player1)
 
-    let player2 = Player(pawns: mPawns)
+    let player2 = Player(cards: mCards.draw(count: 2), pawns: mPawns)
     player2.chooseColor(.blue)
     players.append(player2)
   }

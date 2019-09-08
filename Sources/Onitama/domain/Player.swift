@@ -3,13 +3,16 @@ public final class Player {
   // -- dependencies --
   private let mPawns: PawnRepo
 
+  private let mCards: [Card]
+
   // -- properties --
   /// `color` is this player's, and its corresponding pieces', color.
   public private(set) var color: Color = .none
 
   // -- lifetime --
-  init(pawns: PawnRepo) {
-    self.mPawns = pawns
+  init(cards: [Card], pawns: PawnRepo) {
+    mCards = cards
+    mPawns = pawns
   }
 
   // -- commands --

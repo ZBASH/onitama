@@ -3,8 +3,8 @@ import XCTest
 @testable import Onitama
 
 final class PendingMoveTests: TestCase {
-  func testItCreatesValidMovesForTheFirstPlayer() {
-    let game = Game()
+  func testItCreatesValidMovesForTheFirstPlayer() throws {
+    let game = try Game()
     game.start()
     let pendingMove = PendingMove(game: game)
 
@@ -17,8 +17,8 @@ final class PendingMoveTests: TestCase {
     XCTAssertEqual(actual?.newPosition, Point(1, 1))
   }
 
-  func testItCreatesValidMovesForTheSecondPlayer() {
-    let game = Game()
+  func testItCreatesValidMovesForTheSecondPlayer() throws {
+    let game = try Game()
     game.start()
     game.makeMove(move: Move(pawnId: 0, newPosition: .zero()))
     let pendingMove = PendingMove(game: game)
@@ -32,23 +32,8 @@ final class PendingMoveTests: TestCase {
     XCTAssertEqual(actual?.newPosition, Point(1, 3))
   }
 
-  func testItDisallowsInvalidPawns() {
-    let game = Game()
-    game.start()
-    let pendingMove = PendingMove(game: game)
-
-    pendingMove.pickPawn(byOffset: 100)
-    pendingMove.pickCard(card: Point.zero())
-    let actual = pendingMove.getValidMove()
-
-    guard case .error(.invalidPawnIndex(100)) = actual else {
-      XCTFail("Did not produce .error(.invalidPawnId(100))")
-      return
-    }
-  }
-
-  func testItDisallowsOutOfBoundsMoves() {
-    let game = Game()
+  func testItDisallowsOutOfBoundsMoves() throws {
+    let game = try Game()
     game.start()
     let pendingMove = PendingMove(game: game)
 
@@ -62,8 +47,8 @@ final class PendingMoveTests: TestCase {
     }
   }
 
-  func testItDisallowsMovesToOccupiedSpaces() {
-    let game = Game()
+  func testItDisallowsMovesToOccupiedSpaces() throws {
+    let game = try Game()
     game.start()
     let pendingMove = PendingMove(game: game)
 
